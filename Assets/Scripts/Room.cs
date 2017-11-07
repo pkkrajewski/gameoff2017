@@ -1,15 +1,15 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Room : MonoBehaviour
 {
     private bool hasEntered;
-    private Camera cam;
+    private CameraController cam;
 
     private void Awake()
     {
-        cam = FindObjectOfType<Camera>();
+        cam = FindObjectOfType<CameraController>();
     }
 
     private void Update()
