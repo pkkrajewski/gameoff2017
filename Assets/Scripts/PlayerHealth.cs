@@ -1,30 +1,30 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour {
 
     public Transform healthPacksContainer;
     public GameObject healthPackPrefab;
 
-    int healthPacksNumber = 4;
+    public int healthPacksNumber = 4;
 
 	void Start ()
     {
         for (int i = 0; i < healthPacksNumber; i++)
             AddHealthPack();
-        Debug.Log(healthPacksNumber);
 	}
-	
-	void Update ()
+
+    void Update()
     {
-		
-	}
+        if (IsDead())
+            SceneManager.LoadScene("Game");
+    }
 
     void AddHealthPack()
     {
         if (healthPackPrefab != null)
         {
             Instantiate(healthPackPrefab, healthPacksContainer);
-            healthPacksNumber++;
         }
     }
 
@@ -32,5 +32,11 @@ public class PlayerHealth : MonoBehaviour {
     {
         Destroy(GameObject.FindGameObjectWithTag("HealthPack"));
         healthPacksNumber--;
+    }
+
+    public bool IsDead()
+    {
+        Debug.Log(healthPacksNumber);
+        return healthPacksNumber <= 0;
     }
 }
