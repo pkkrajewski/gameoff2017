@@ -574,7 +574,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomPrefab: {fileID: 1183079976731214, guid: 3553a3e3e44f836408085853218f64af, type: 2}
-  easyEnemyPrefab: {fileID: 0}
+  easyEnemyPrefab: {fileID: 1571730795627296, guid: 508d1d7acef816d4c8df9bf6b84a6775,
+    type: 2}
   currentRoom: {fileID: 0}
 --- !u!1 &1376457260
 GameObject:

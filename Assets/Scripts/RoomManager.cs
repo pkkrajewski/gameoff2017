@@ -12,7 +12,7 @@ public class RoomManager : MonoBehaviour
 
     private void Awake()
     {
-        CreateNextRoom(GetComponentInChildren<Room>());
+        //CreateNextRoom(GetComponentInChildren<Room>());
     }
 
     public void CreateNextRoom(Room currentRoom)
