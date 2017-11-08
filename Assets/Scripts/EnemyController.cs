@@ -6,8 +6,8 @@ public class EnemyController : MonoBehaviour
 {
     [HideInInspector]
     public Room room;
-
-    private SpriteRenderer spriteRenderer;
+    [HideInInspector]
+    public SpriteRenderer spriteRenderer;
 
     private void Awake()
     {
@@ -42,7 +42,8 @@ public class EnemyController : MonoBehaviour
         {
             if (spriteRenderer.color.a >= 1)
             {
-                room.amountOfEasyEnemies--;
+                if(room != null)
+                    room.amountOfEasyEnemies--;
 
                 Destroy(gameObject);
             }
