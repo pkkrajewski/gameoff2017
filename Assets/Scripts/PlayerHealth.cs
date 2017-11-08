@@ -21,8 +21,11 @@ public class PlayerHealth : MonoBehaviour {
 
     void AddHealthPack()
     {
-        Instantiate(healthPackPrefab, healthPacksContainer);
-        healthPacksNumber++;
+        if (healthPackPrefab != null)
+        {
+            Instantiate(healthPackPrefab, healthPacksContainer);
+            healthPacksNumber++;
+        }
     }
 
     void RemoveHealthPack()
