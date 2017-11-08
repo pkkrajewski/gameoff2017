@@ -9,8 +9,9 @@ public class Room : MonoBehaviour
 
     [HideInInspector]
     public Vector2 roomSize;
+    [HideInInspector]
+    public int amountOfEasyEnemies;
 
-    private int amountOfEasyEnemies;
     private bool hasEntered;
     private CameraController cam;
     private GameObject player;
@@ -22,12 +23,20 @@ public class Room : MonoBehaviour
         roomSize = GetCurrentRoomSize();
         roomManager = FindObjectOfType<RoomManager>();
     }
+        
+    private void Start()
+    {
+        amountOfEasyEnemies = 3;
+    }
 
     private void Update()
     {
         if (topDoor.activeInHierarchy)
         {
-            if (player != null && (player.transform.position.y - transform.position.y) > 4f)
+            if (player != null && (player.transform.position.y - transform.position.y) > 4f && transform.position == Vector3.zero)
+                OpenTopDoor();
+
+            if (amountOfEasyEnemies <= 0 && transform.position != Vector3.zero)
             {
                 OpenTopDoor();
             }
@@ -50,19 +59,45 @@ public class Room : MonoBehaviour
 
     private void CloseBottomDoor()
     {
-        bottomDoor.SetActive(true);
+        if (!bottomDoor.activeInHierarchy)
+        {
+            bottomDoor.SetActive(true);
+
+            if(transform.position != Vector3.zero)
+                PlaceEnemies();
+        }
+    }
+
+    private void PlaceEnemies()
+    {
+        int easyEnemies = Random.Range(1, amountOfEasyEnemies + 1);
+        for (int i = 0; i < easyEnemies; i++)
+        {
+            GameObject newEnemy = Instantiate(roomManager.easyEnemyPrefab, transform);
+            float offset = 1f;
+            float roomX = roomSize.x / 2 - offset;
+            float roomY = roomSize.y / 2 - offset;
+
+            Vector3 pos = new Vector3(Random.Range(-roomX, roomX), Random.Range(-roomY, roomY), 0);
+
+            if (pos.y < 3) pos.y += 2;
+
+            newEnemy.transform.position = transform.position + pos;
+
+            newEnemy.GetComponent<EnemyController>().room = this;
+        }
+        amountOfEasyEnemies = easyEnemies;
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (!hasEntered && collision.name == "Player")
+        if (collision.name == "Player")
         {
             if (player == null)
                 player = collision.gameObject;       
 
-            if (player != null && (player.transform.position.y - transform.position.y) > -4.5f)
+            if (!hasEntered && player != null && (player.transform.position.y - transform.position.y) > -4.5f)
             {
-                //Debug.Log(GetInstanceID());
                 roomManager.CreateNextRoom(this);
 
                 hasEntered = true;
