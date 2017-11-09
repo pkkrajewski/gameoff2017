@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RoomManager : MonoBehaviour
 {
@@ -10,9 +11,14 @@ public class RoomManager : MonoBehaviour
     [HideInInspector]
     public Room currentRoom;
 
+    private int roomNumber = 0;
+    private Text roomText;
+
     private void Awake()
     {
         //CreateNextRoom(GetComponentInChildren<Room>());
+
+        roomText = GameObject.Find("Text Room Number").GetComponent<Text>();
     }
 
     public void CreateNextRoom(Room currentRoom)
@@ -25,5 +31,8 @@ public class RoomManager : MonoBehaviour
         float x = currentRoom.transform.position.x;
         float y = currentRoom.transform.position.y + room.roomSize.y;
         newRoom.transform.position = new Vector2(x, y);
+
+        roomNumber++;
+        if (roomText != null) roomText.text = "room: " + roomNumber;
     }
 }
