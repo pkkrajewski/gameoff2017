@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyFollowPlayer : MonoBehaviour
 {
+    public float keepDistance = 0;
+
     private float moveSpeed = 1;
     private GameObject player;
     private EnemyController enemyController;
@@ -20,7 +22,7 @@ public class EnemyFollowPlayer : MonoBehaviour
         {
             player = FindObjectOfType<PlayerMovement>().gameObject;
         }
-        else if(enemyController.spriteRenderer.color.a >= 1)
+        else if(enemyController.spriteRenderer.color.a >= 1 && keepDistance <= Vector2.Distance(transform.position, player.transform.position))
         {
             Vector3 direction = player.transform.position - transform.position;
             transform.rotation = Quaternion.FromToRotation(Vector3.up, direction);
