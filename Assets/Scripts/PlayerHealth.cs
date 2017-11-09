@@ -1,8 +1,8 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerHealth : MonoBehaviour {
-
+public class PlayerHealth : MonoBehaviour
+{
     public Transform healthPacksContainer;
     public GameObject healthPackPrefab;
 
@@ -34,9 +34,16 @@ public class PlayerHealth : MonoBehaviour {
         healthPacksNumber--;
     }
 
-    public bool IsDead()
+    void OnTriggerEnter2D(Collider2D coll) {
+        if (coll.gameObject.tag == "EnemyBullet")
+        {
+            RemoveHealthPack();
+            Destroy(coll.gameObject);
+        }
+    }
+
+    private bool IsDead()
     {
-        //Debug.Log(healthPacksNumber);
         return healthPacksNumber <= 0;
     }
 }

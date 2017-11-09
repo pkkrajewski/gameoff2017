@@ -7,6 +7,7 @@ TagManager:
   - Bullet
   - HealthPack
   - Wall
+  - EnemyBullet
   layers:
   - Default
   - TransparentFX

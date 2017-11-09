@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -43,7 +43,7 @@ public class EnemyController : MonoBehaviour
             if (spriteRenderer.color.a >= 1)
             {
                 if(room != null)
-                    room.amountOfEasyEnemies--;
+                    room.amountOfEnemies--;
 
                 Destroy(gameObject);
             }

@@ -10,7 +10,7 @@ public class Room : MonoBehaviour
     [HideInInspector]
     public Vector2 roomSize;
     [HideInInspector]
-    public int amountOfEasyEnemies;
+    public int amountOfEnemies;
 
     private bool hasEntered;
     private CameraController cam;
@@ -26,7 +26,7 @@ public class Room : MonoBehaviour
         
     private void Start()
     {
-        amountOfEasyEnemies = 3;
+        amountOfEnemies = 3;
     }
 
     private void Update()
@@ -36,7 +36,7 @@ public class Room : MonoBehaviour
             if (player != null && (player.transform.position.y - transform.position.y) > 4f && transform.position == Vector3.zero)
                 OpenTopDoor();
 
-            if (amountOfEasyEnemies <= 0 && transform.position != Vector3.zero)
+            if (amountOfEnemies <= 0 && transform.position != Vector3.zero)
             {
                 OpenTopDoor();
             }
@@ -70,10 +70,16 @@ public class Room : MonoBehaviour
 
     private void PlaceEnemies()
     {
-        int easyEnemies = Random.Range(1, amountOfEasyEnemies + 1);
-        for (int i = 0; i < easyEnemies; i++)
+        int enemies = Random.Range(1, amountOfEnemies + 1);
+        for (int i = 0; i < enemies; i++)
         {
-            GameObject newEnemy = Instantiate(roomManager.easyEnemyPrefab, transform);
+            GameObject newEnemy;
+
+            if (Random.Range(0, 2) == 0)
+                newEnemy = Instantiate(roomManager.easyEnemyPrefab, transform);
+            else
+                newEnemy = Instantiate(roomManager.shootingEnemyPrefab, transform);
+
             float offset = 1f;
             float roomX = roomSize.x / 2 - offset;
             float roomY = roomSize.y / 2 - offset;
@@ -86,7 +92,7 @@ public class Room : MonoBehaviour
 
             newEnemy.GetComponent<EnemyController>().room = this;
         }
-        amountOfEasyEnemies = easyEnemies;
+        amountOfEnemies = enemies;
     }
 
     private void OnTriggerStay2D(Collider2D collision)

@@ -1,11 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class RoomManager : MonoBehaviour
 {
     public GameObject roomPrefab;
     public GameObject easyEnemyPrefab;
+    public GameObject shootingEnemyPrefab;
     
     [HideInInspector]
     public Room currentRoom;
