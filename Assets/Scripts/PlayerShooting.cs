@@ -5,16 +5,31 @@ public class PlayerShooting : MonoBehaviour {
     public GameObject bulletPrefab;
     public Transform bulletSpawn;
 
+    public float fireRate;
+    private float fireRateCounter;
+
     public float bulletSpeed;
     public float bulletLifeTime;
+    public int bulletBounce;
 
-	void Update ()
+    void Update ()
     {
-		if(Input.GetMouseButtonUp(0))
+        if (fireRateCounter <= 0)
         {
-            GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, Quaternion.identity);
-            bullet.GetComponent<Rigidbody2D>().velocity = GetDirectionToMouse() * bulletSpeed;
-            Destroy(bullet, bulletLifeTime);
+            if (Input.GetMouseButton(0))
+            {
+                fireRateCounter = fireRate;
+
+                GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, Quaternion.identity);
+                bullet.GetComponent<Rigidbody2D>().velocity = GetDirectionToMouse() * bulletSpeed;
+                bullet.GetComponent<BulletController>().bulletLifeTime = bulletLifeTime;
+                bullet.GetComponent<BulletController>().bounce = bulletBounce;
+            }
+
+        }
+        else
+        {
+            fireRateCounter -= Time.deltaTime;
         }
 	}
 

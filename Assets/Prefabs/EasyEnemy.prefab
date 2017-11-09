@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 61519118928616864}
   - component: {fileID: 114032315252810626}
   - component: {fileID: 114704949564666168}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: EasyEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}

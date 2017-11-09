@@ -36,7 +36,7 @@ public class PlayerHealth : MonoBehaviour {
 
     public bool IsDead()
     {
-        Debug.Log(healthPacksNumber);
+        //Debug.Log(healthPacksNumber);
         return healthPacksNumber <= 0;
     }
 }
