@@ -383,6 +383,8 @@ MonoBehaviour:
   roomPrefab: {fileID: 1183079976731214, guid: 3553a3e3e44f836408085853218f64af, type: 2}
   easyEnemyPrefab: {fileID: 1571730795627296, guid: 508d1d7acef816d4c8df9bf6b84a6775,
     type: 2}
+  shootingEnemyPrefab: {fileID: 1899927898475104, guid: 072578a2da18bc847ac6b0ef4dccea45,
+    type: 2}
   currentRoom: {fileID: 0}
 --- !u!1 &1376457260
 GameObject:
@@ -407,7 +409,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1376457260}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -831.18085, y: 623.6908, z: 0}
+  m_LocalPosition: {x: -1115.9109, y: 464.55322, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 275605133}
@@ -415,7 +417,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0.000061035156, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1376457262
@@ -669,7 +671,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1808862680}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 831.1809, y: 623.6908, z: 0}
+  m_LocalPosition: {x: 1115.9109, y: 464.55322, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 275605133}
