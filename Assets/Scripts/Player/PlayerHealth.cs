@@ -8,7 +8,7 @@ public class PlayerHealth : MonoBehaviour
 
     public int healthPacksNumber = 4;
 
-	void Start ()
+    void Start ()
     {
         for (int i = 0; i < healthPacksNumber; i++)
             AddHealthPack();
@@ -17,7 +17,11 @@ public class PlayerHealth : MonoBehaviour
     void Update()
     {
         if (IsDead())
-            SceneManager.LoadScene("Game");
+        {
+            FindObjectOfType<GameManager>().GameOver();
+            Destroy(gameObject);
+            //SceneManager.LoadScene("Game");
+        }
     }
 
     void AddHealthPack()

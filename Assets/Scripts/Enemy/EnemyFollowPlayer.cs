@@ -18,11 +18,7 @@ public class EnemyFollowPlayer : MonoBehaviour
 
     private void Update()
     {
-        if (player == null)
-        {
-            player = FindObjectOfType<PlayerMovement>().gameObject;
-        }
-        else if(enemyController.spriteRenderer.color.a >= 1 && keepDistance <= Vector2.Distance(transform.position, player.transform.position))
+        if(player != null && enemyController.spriteRenderer.color.a >= 1 && keepDistance <= Vector2.Distance(transform.position, player.transform.position))
         {
             Vector3 direction = player.transform.position - transform.position;
             transform.rotation = Quaternion.FromToRotation(Vector3.up, direction);
@@ -30,5 +26,4 @@ public class EnemyFollowPlayer : MonoBehaviour
             transform.Translate(Vector2.up * moveSpeed * Time.deltaTime);
         }
     }
-
 }

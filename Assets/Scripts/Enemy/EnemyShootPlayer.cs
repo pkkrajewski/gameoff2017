@@ -17,7 +17,10 @@ public class EnemyShootPlayer : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
 	}
 	
-	void Update () {
+	void Update ()
+    {
+        if (player == null) return;
+
         timeSinceLastShot += Time.deltaTime;
 
         if(timeSinceLastShot >= interval)

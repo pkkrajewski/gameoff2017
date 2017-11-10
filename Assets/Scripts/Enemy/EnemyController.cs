@@ -49,4 +49,9 @@ public class EnemyController : MonoBehaviour
             }
         }
     }
+
+    private void OnDestroy()
+    {
+        GameManager.enemiesDestroyed++;
+    }
 }

@@ -9,8 +9,9 @@ public class RoomManager : MonoBehaviour
     
     [HideInInspector]
     public Room currentRoom;
+    [HideInInspector]
+    public int roomNumber = 0;
 
-    private int roomNumber = 0;
     private Text roomText;
 
     private void Awake()
