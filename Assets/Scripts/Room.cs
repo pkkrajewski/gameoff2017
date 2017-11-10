@@ -124,14 +124,15 @@ public class Room : MonoBehaviour
         {
             gridPositions = new List<Vector3Int>();
 
-            int offset = 2;
+            int offsetX = 3;
+            int offsetY = 1;
 
             int boundsX = (int)tilemap.localBounds.max.x;
             int boundsY = (int)tilemap.localBounds.max.y;
 
-            for (int x = -boundsX + offset; x < boundsX - offset + 1; x++)
+            for (int x = -boundsX + offsetX; x < boundsX - offsetX + 1; x++)
             {
-                for (int y = -boundsY + offset; y < boundsY - offset + 1; y++)
+                for (int y = -boundsY + offsetY; y < boundsY - offsetY + 1; y++)
                 {
                     //not letting an enemy spawn where the player can enter the room
                     if (x > -5 && x < 5 && y < -3) continue;
