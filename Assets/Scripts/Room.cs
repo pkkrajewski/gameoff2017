@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class Room : MonoBehaviour
 {
@@ -16,17 +17,23 @@ public class Room : MonoBehaviour
     private CameraController cam;
     private GameObject player;
     private RoomManager roomManager;
+    private Tilemap tilemap;
+    private static List<Vector3Int> gridPositions;
+    private List<Vector3Int> freeGridPositions;
 
     private void Awake()
     {
         cam = FindObjectOfType<CameraController>();
         roomSize = GetCurrentRoomSize();
         roomManager = FindObjectOfType<RoomManager>();
+        tilemap = GetComponentInChildren<Tilemap>();
     }
         
     private void Start()
     {
         amountOfEnemies = 3;
+
+        InitGrid();
     }
 
     private void Update()
@@ -80,19 +87,63 @@ public class Room : MonoBehaviour
             else
                 newEnemy = Instantiate(roomManager.shootingEnemyPrefab, transform);
 
-            float offset = 1f;
-            float roomX = roomSize.x / 2 - offset;
-            float roomY = roomSize.y / 2 - offset;
+            //float offset = 1f;
+            //float roomX = roomSize.x / 2 - offset;
+            //float roomY = roomSize.y / 2 - offset;
 
-            Vector3 pos = new Vector3(Random.Range(-roomX, roomX), Random.Range(-roomY, roomY), 0);
+            //Vector3 pos = new Vector3(Random.Range(-roomX, roomX), Random.Range(-roomY, roomY), 0);
 
-            if (pos.y < 3) pos.y += 2;
+            //if (pos.y < 3) pos.y += 2;
 
-            newEnemy.transform.position = transform.position + pos;
+            //newEnemy.transform.position = transform.position + pos;
+
+            newEnemy.transform.position = GiveFreeGridPosition();
 
             newEnemy.GetComponent<EnemyController>().room = this;
         }
         amountOfEnemies = enemies;
+    }
+
+    private Vector3 GiveFreeGridPosition()
+    {
+        Vector3Int pos = freeGridPositions[Random.Range(0, freeGridPositions.Count)];
+
+        freeGridPositions.Remove(new Vector3Int (pos.x -1, pos.y, 0));
+        freeGridPositions.Remove(new Vector3Int(pos.x + 1, pos.y, 0));
+        freeGridPositions.Remove(new Vector3Int(pos.x, pos.y - 1, 0));
+        freeGridPositions.Remove(new Vector3Int(pos.x, pos.y + 1, 0));
+
+        freeGridPositions.Remove(pos);
+
+        return tilemap.CellToWorld(pos);
+    }
+
+    private void InitGrid()
+    {
+        if (tilemap != null && gridPositions == null)
+        {
+            gridPositions = new List<Vector3Int>();
+
+            int offset = 2;
+
+            int boundsX = (int)tilemap.localBounds.max.x;
+            int boundsY = (int)tilemap.localBounds.max.y;
+
+            for (int x = -boundsX + offset; x < boundsX - offset + 1; x++)
+            {
+                for (int y = -boundsY + offset; y < boundsY - offset + 1; y++)
+                {
+                    //not letting an enemy spawn where the player can enter the room
+                    if (x > -5 && x < 5 && y < -3) continue;
+
+                    gridPositions.Add(new Vector3Int(x, y, 0));
+                }
+            }
+        }
+        else
+        {
+            freeGridPositions = new List<Vector3Int>(gridPositions);
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
