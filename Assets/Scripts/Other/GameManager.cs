@@ -34,8 +34,6 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        if (enemiesDestroyed == 0) return;
-
         int newScore = CalculateHighScore();
         int bestScore = PlayerPrefs.GetInt("HighScore", 0);
         if (newScore > bestScore)
