@@ -24,11 +24,14 @@ public class EnemyShootPlayer : MonoBehaviour
     {
         timeSinceLastShot += Time.deltaTime;
 
-        if(timeSinceLastShot >= currentInterval)
+        if (timeSinceLastShot >= currentInterval)
         {
-            Shoot();
-            timeSinceLastShot = 0;
-            currentInterval = Random.Range(MinInterval, MaxInterval);
+            if (player != null)
+            {
+                Shoot();
+                timeSinceLastShot = 0;
+                currentInterval = Random.Range(MinInterval, MaxInterval);
+            }
         }
 	}
 
