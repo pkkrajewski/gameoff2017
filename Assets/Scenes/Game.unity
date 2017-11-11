@@ -194,8 +194,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 275605129}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 340.5, y: 255.5, z: 0}
-  m_LocalScale: {x: 0.4096581, y: 0.4096581, z: 0.4096581}
+  m_LocalPosition: {x: 378, y: 283.5, z: 0}
+  m_LocalScale: {x: 0.45466334, y: 0.45466334, z: 0.45466334}
   m_Children:
   - {fileID: 1348625636}
   - {fileID: 565050689}
@@ -1455,6 +1455,11 @@ Prefab:
       propertyPath: healthPacksContainer
       value: 
       objectReference: {fileID: 1376457261}
+    - target: {fileID: 50152005568669938, guid: ac625af71b0b64a498ed0dbe67688dee,
+        type: 2}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ac625af71b0b64a498ed0dbe67688dee, type: 2}
   m_IsPrefabParent: 0

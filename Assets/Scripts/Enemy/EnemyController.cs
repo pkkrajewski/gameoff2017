@@ -36,9 +36,9 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.name == "Player")
+        if (collision.gameObject.tag == "Player")
         {
             if (spriteRenderer.color.a >= 1)
             {
