@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -13,6 +12,9 @@ public class Room : MonoBehaviour
     [HideInInspector]
     public int amountOfEnemies;
 
+    public static int startingAmountOfEnemies;
+
+    private int numberOfPassedRoomsToAddEnemy = 2;
     private bool hasEntered;
     private CameraController cam;
     private GameObject player;
@@ -31,8 +33,9 @@ public class Room : MonoBehaviour
         
     private void Start()
     {
-        amountOfEnemies = 3;
-
+        if (roomManager.roomNumber % numberOfPassedRoomsToAddEnemy == 0)
+            startingAmountOfEnemies++;
+        amountOfEnemies = startingAmountOfEnemies;
         InitGrid();
     }
 
@@ -77,8 +80,7 @@ public class Room : MonoBehaviour
 
     private void PlaceEnemies()
     {
-        int enemies = Random.Range(1, amountOfEnemies + 1);
-        for (int i = 0; i < enemies; i++)
+        for (int i = 0; i < amountOfEnemies; i++)
         {
             GameObject newEnemy;
 
@@ -101,7 +103,6 @@ public class Room : MonoBehaviour
 
             newEnemy.GetComponent<EnemyController>().room = this;
         }
-        amountOfEnemies = enemies;
     }
 
     private Vector3 GiveFreeGridPosition()

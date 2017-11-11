@@ -54,6 +54,7 @@ public class GameManager : MonoBehaviour
         EnemyFollowPlayer.MoveSpeed = 1.0f;
         EnemyShootPlayer.MaxInterval = 1.5f;
         EnemyShootPlayer.BulletSpeed = 4.0f;
+        Room.startingAmountOfEnemies = 1;
     }
 
     private int CalculateHighScore()
