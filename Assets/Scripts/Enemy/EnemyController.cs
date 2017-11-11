@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+    public int health;
     [HideInInspector]
     public Room room;
     [HideInInspector]
@@ -36,15 +37,16 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collider.tag == "Bullet")
         {
-            if (spriteRenderer.color.a >= 1)
-            {
-                if(room != null)
-                    room.amountOfEnemies--;
+            Destroy(collider.gameObject);
+            health--;
 
+            if (health == 0)
+            {
+                room.amountOfEnemies--;
                 Destroy(gameObject);
             }
         }

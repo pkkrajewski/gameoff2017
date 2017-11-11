@@ -129,6 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 482aaf9e0d7a7854fa574dba11a93fa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 1
   room: {fileID: 0}
   spriteRenderer: {fileID: 0}
 --- !u!114 &114704949564666168
