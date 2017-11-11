@@ -7,7 +7,10 @@ public class EnemyShootPlayer : MonoBehaviour
 
     public static float BulletSpeed = 5.0f;
 
-    const float interval = 1.0f;
+    const float minInterval = 0.05f;
+    static float maxInterval = 1.0f;
+
+    float currentInterval;
     float timeSinceLastShot;
 
     private Transform player;
@@ -19,14 +22,13 @@ public class EnemyShootPlayer : MonoBehaviour
 	
 	void Update ()
     {
-        if (player == null) return;
-
         timeSinceLastShot += Time.deltaTime;
 
-        if(timeSinceLastShot >= interval)
+        if(timeSinceLastShot >= currentInterval)
         {
             Shoot();
             timeSinceLastShot = 0;
+            currentInterval = Random.Range(minInterval, maxInterval);
         }
 	}
 
