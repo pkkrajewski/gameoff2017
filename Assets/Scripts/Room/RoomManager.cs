@@ -23,6 +23,7 @@ public class RoomManager : MonoBehaviour
 
     public void CreateNextRoom(Room currentRoom)
     {
+        BeforeCreatingRoom();
         this.currentRoom = currentRoom;
 
         GameObject newRoom = Instantiate(roomPrefab);
@@ -32,7 +33,15 @@ public class RoomManager : MonoBehaviour
         float y = currentRoom.transform.position.y + room.roomSize.y;
         newRoom.transform.position = new Vector2(x, y);
 
+        roomText.text = "room: " + roomNumber;
+    }
+
+    private void BeforeCreatingRoom()
+    {
         roomNumber++;
-        if (roomText != null) roomText.text = "room: " + roomNumber;
+
+        EnemyShootPlayer.MaxInterval -= 0.04f;
+        EnemyShootPlayer.BulletSpeed += 0.3f;
+        EnemyFollowPlayer.MoveSpeed += 0.09f;
     }
 }

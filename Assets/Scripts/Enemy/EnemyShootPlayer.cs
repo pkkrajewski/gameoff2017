@@ -5,10 +5,10 @@ public class EnemyShootPlayer : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform bulletSpawn;
 
-    public static float BulletSpeed = 5.0f;
+    public static float BulletSpeed;
 
-    const float minInterval = 0.05f;
-    static float maxInterval = 1.0f;
+    const float MinInterval = 0.05f;
+    public static float MaxInterval;
 
     float currentInterval;
     float timeSinceLastShot;
@@ -28,7 +28,7 @@ public class EnemyShootPlayer : MonoBehaviour
         {
             Shoot();
             timeSinceLastShot = 0;
-            currentInterval = Random.Range(minInterval, maxInterval);
+            currentInterval = Random.Range(MinInterval, MaxInterval);
         }
 	}
 

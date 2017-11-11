@@ -6,7 +6,7 @@ public class PlayerHealth : MonoBehaviour
     public Transform healthPacksContainer;
     public GameObject healthPackPrefab;
 
-    public int healthPacksNumber = 4;
+    public int healthPacksNumber;
 
     void Start ()
     {

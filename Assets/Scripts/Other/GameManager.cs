@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         gameoverPanel.SetActive(false);
+        ResetVariables();
     }
 
     public void Restart()
@@ -45,6 +46,14 @@ public class GameManager : MonoBehaviour
         bestScoreText.text = bestScore.ToString();
 
         enemiesDestroyed = 0;
+        ResetVariables();
+    }
+
+    private void ResetVariables()
+    {
+        EnemyFollowPlayer.MoveSpeed = 1.0f;
+        EnemyShootPlayer.MaxInterval = 1.5f;
+        EnemyShootPlayer.BulletSpeed = 4.0f;
     }
 
     private int CalculateHighScore()
