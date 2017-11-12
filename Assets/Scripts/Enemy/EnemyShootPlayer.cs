@@ -33,7 +33,7 @@ public class EnemyShootPlayer : MonoBehaviour
                 currentInterval = Random.Range(MinInterval, MaxInterval);
             }
         }
-	}
+    }
 
     void Shoot()
     {
