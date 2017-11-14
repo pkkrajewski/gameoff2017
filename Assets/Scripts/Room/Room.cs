@@ -37,6 +37,7 @@ public class Room : MonoBehaviour
             startingAmountOfEnemies++;
         amountOfEnemies = startingAmountOfEnemies;
         InitGrid();
+        FindObjectOfType<SoundManager>().Play("RoomEntering");
     }
 
     private void Update()

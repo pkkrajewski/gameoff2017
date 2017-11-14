@@ -43,6 +43,7 @@ public class EnemyShootPlayer : MonoBehaviour
     {
         GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, Quaternion.identity);
         bullet.GetComponent<Rigidbody2D>().velocity = GetDirectionToPlayer() * BulletSpeed;
+        FindObjectOfType<SoundManager>().Play("Shot");
     }
 
     Vector2 GetDirectionToPlayer()

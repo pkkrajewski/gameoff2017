@@ -194,8 +194,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 275605129}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 340.5, y: 255.5, z: 0}
-  m_LocalScale: {x: 0.4096581, y: 0.4096581, z: 0.4096581}
+  m_LocalPosition: {x: 377.5, y: 283, z: 0}
+  m_LocalScale: {x: 0.45396167, y: 0.45396167, z: 0.45396167}
   m_Children:
   - {fileID: 1348625636}
   - {fileID: 565050689}
@@ -1416,6 +1416,67 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1859331332}
+--- !u!1 &1978846800
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1978846802}
+  - component: {fileID: 1978846801}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1978846801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1978846800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e89b0081a9eebf49acd34d3c1308ff3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Shot
+    clip: {fileID: 8300000, guid: d373d9fcf39c75c4b93d9fdc748cc8a4, type: 3}
+    volume: 1
+    source: {fileID: 0}
+  - name: PlayerHit
+    clip: {fileID: 8300000, guid: 334fdc9d37e74564496b092be945f21c, type: 3}
+    volume: 1
+    source: {fileID: 0}
+  - name: EnemyHit
+    clip: {fileID: 8300000, guid: 08015a834c87de249b004afa94a048b2, type: 3}
+    volume: 1
+    source: {fileID: 0}
+  - name: GameOver
+    clip: {fileID: 8300000, guid: 24eb5aeb0d949c648aee208ab4beb793, type: 3}
+    volume: 1
+    source: {fileID: 0}
+  - name: RoomEntering
+    clip: {fileID: 8300000, guid: 0adb12da35ad13849a9532e691087ce1, type: 3}
+    volume: 1
+    source: {fileID: 0}
+--- !u!4 &1978846802
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1978846800}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2060237096
 Prefab:
   m_ObjectHideFlags: 0
