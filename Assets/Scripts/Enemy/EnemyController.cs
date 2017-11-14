@@ -46,7 +46,9 @@ public class EnemyController : MonoBehaviour
 
             if (health == 0)
             {
-                room.amountOfEnemies--;
+                if(room != null)
+                    room.amountOfEnemies--;
+
                 Destroy(gameObject);
             }
         }

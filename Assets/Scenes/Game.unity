@@ -946,11 +946,6 @@ Prefab:
       propertyPath: healthPacksContainer
       value: 
       objectReference: {fileID: 1376457261}
-    - target: {fileID: 212069906796601172, guid: ac625af71b0b64a498ed0dbe67688dee,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ac625af71b0b64a498ed0dbe67688dee, type: 2}
   m_IsPrefabParent: 0

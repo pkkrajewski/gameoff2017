@@ -3,8 +3,9 @@ using UnityEngine;
 public class EnemyFollowPlayer : MonoBehaviour
 {
     public float keepDistance = 0;
-
     public static float MoveSpeed;
+    public Animator mainAnimator;
+
     private GameObject player;
     private EnemyController enemyController;
     private Rigidbody2D body;
@@ -25,6 +26,12 @@ public class EnemyFollowPlayer : MonoBehaviour
 
             transform.rotation = Quaternion.FromToRotation(Vector3.up, direction);
             body.MovePosition((Vector2)transform.position + (Vector2)direction * MoveSpeed * Time.deltaTime);
+
+             if(mainAnimator)
+                mainAnimator.SetBool("walking", true);
         }
+        else
+            if (mainAnimator)
+            mainAnimator.SetBool("walking", false);
     }
 }

@@ -11,9 +11,12 @@ public class EnemyShootPlayer : MonoBehaviour
     public static float MaxInterval;
 
     float currentInterval;
-    float timeSinceLastShot;
+    float timeSinceLastShot = -1;
 
     private Transform player;
+
+    public Animator mainAnimator;
+    public Animator muzzleAnimator;
 
     void Start ()
     {
@@ -31,6 +34,7 @@ public class EnemyShootPlayer : MonoBehaviour
                 Shoot();
                 timeSinceLastShot = 0;
                 currentInterval = Random.Range(MinInterval, MaxInterval);
+                muzzleAnimator.Play("Muzzle");
             }
         }
     }
