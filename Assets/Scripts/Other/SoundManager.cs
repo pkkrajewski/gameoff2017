@@ -2,15 +2,13 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    public Sound[] sounds;
+    public SoundPack[] soundPacks;
 
 	void Awake ()
     {
-        foreach(Sound s in sounds)
+        foreach(SoundPack s in soundPacks)
         {
             s.source = gameObject.AddComponent<AudioSource>();
-            s.source.clip = s.clip;
-
             s.source.volume = s.volume;
         }
 	}
@@ -19,11 +17,11 @@ public class SoundManager : MonoBehaviour
     {
         bool soundFound = false;
 
-        foreach(Sound s in sounds)
+        foreach(SoundPack s in soundPacks)
         {
             if (s.name == name)
             {
-                s.source.Play();
+                s.Play();
                 soundFound = true;
                 break;
             }

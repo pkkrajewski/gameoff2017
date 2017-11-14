@@ -1443,27 +1443,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e89b0081a9eebf49acd34d3c1308ff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds:
-  - name: Shot
-    clip: {fileID: 8300000, guid: d373d9fcf39c75c4b93d9fdc748cc8a4, type: 3}
-    volume: 1
-    source: {fileID: 0}
-  - name: PlayerHit
-    clip: {fileID: 8300000, guid: 334fdc9d37e74564496b092be945f21c, type: 3}
-    volume: 1
-    source: {fileID: 0}
-  - name: EnemyHit
-    clip: {fileID: 8300000, guid: 08015a834c87de249b004afa94a048b2, type: 3}
-    volume: 1
-    source: {fileID: 0}
-  - name: GameOver
-    clip: {fileID: 8300000, guid: 24eb5aeb0d949c648aee208ab4beb793, type: 3}
-    volume: 1
-    source: {fileID: 0}
-  - name: RoomEntering
-    clip: {fileID: 8300000, guid: 0adb12da35ad13849a9532e691087ce1, type: 3}
-    volume: 1
-    source: {fileID: 0}
+  soundPacks: []
 --- !u!4 &1978846802
 Transform:
   m_ObjectHideFlags: 0

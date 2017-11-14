@@ -21,6 +21,8 @@ public class PlayerShooting : MonoBehaviour {
         {
             if (Input.GetMouseButton(0))
             {
+                FindObjectOfType<SoundManager>().Play("PlayerShot");
+
                 fireRateCounter = fireRate;
 
                 GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, Quaternion.identity);
