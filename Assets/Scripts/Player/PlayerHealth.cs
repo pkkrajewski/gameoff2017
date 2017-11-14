@@ -18,6 +18,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (IsDead())
         {
+            FindObjectOfType<SoundManager>().Play("GameOver");
             FindObjectOfType<GameManager>().GameOver();
             Destroy(gameObject);
             //SceneManager.LoadScene("Game");
@@ -41,6 +42,7 @@ public class PlayerHealth : MonoBehaviour
     void OnTriggerEnter2D(Collider2D coll) {
         if (coll.gameObject.tag == "EnemyBullet")
         {
+            FindObjectOfType<SoundManager>().Play("PlayerHit");
             RemoveHealthPack();
             Destroy(coll.gameObject);
         }

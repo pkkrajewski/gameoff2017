@@ -41,6 +41,7 @@ public class EnemyController : MonoBehaviour
     {
         if (collider.tag == "Bullet")
         {
+            FindObjectOfType<SoundManager>().Play("EnemyHit");
             Destroy(collider.gameObject);
             health--;
 
