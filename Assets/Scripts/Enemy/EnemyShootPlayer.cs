@@ -14,6 +14,7 @@ public class EnemyShootPlayer : MonoBehaviour
     float timeSinceLastShot = -1;
 
     private Transform player;
+    private SoundManager soundManager;
 
     public Animator mainAnimator;
     public Animator muzzleAnimator;
@@ -21,6 +22,7 @@ public class EnemyShootPlayer : MonoBehaviour
     void Start ()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        soundManager = FindObjectOfType<SoundManager>().GetComponent<SoundManager>();
 	}
 	
 	void Update ()
@@ -43,7 +45,7 @@ public class EnemyShootPlayer : MonoBehaviour
     {
         GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, Quaternion.identity);
         bullet.GetComponent<Rigidbody2D>().velocity = GetDirectionToPlayer() * BulletSpeed;
-        FindObjectOfType<SoundManager>().Play("EnemyShot");
+        soundManager.Play("EnemyShot");
     }
 
     Vector2 GetDirectionToPlayer()

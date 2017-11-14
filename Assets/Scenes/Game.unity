@@ -946,6 +946,11 @@ Prefab:
       propertyPath: healthPacksContainer
       value: 
       objectReference: {fileID: 1376457261}
+    - target: {fileID: 114999361544423856, guid: ac625af71b0b64a498ed0dbe67688dee,
+        type: 2}
+      propertyPath: soundManager
+      value: 
+      objectReference: {fileID: 1978846801}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ac625af71b0b64a498ed0dbe67688dee, type: 2}
   m_IsPrefabParent: 0
@@ -1496,6 +1501,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114871178126080482, guid: 3553a3e3e44f836408085853218f64af,
+        type: 2}
+      propertyPath: soundManager
+      value: 
+      objectReference: {fileID: 1978846801}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3553a3e3e44f836408085853218f64af, type: 2}
   m_IsPrefabParent: 0

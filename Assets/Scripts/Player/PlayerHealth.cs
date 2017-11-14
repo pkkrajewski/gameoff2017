@@ -1,10 +1,11 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
     public Transform healthPacksContainer;
     public GameObject healthPackPrefab;
+
+    public SoundManager soundManager;
 
     public int healthPacksNumber;
 
@@ -18,10 +19,9 @@ public class PlayerHealth : MonoBehaviour
     {
         if (IsDead())
         {
-            FindObjectOfType<SoundManager>().Play("GameOver");
+            soundManager.Play("GameOver");
             FindObjectOfType<GameManager>().GameOver();
             Destroy(gameObject);
-            //SceneManager.LoadScene("Game");
         }
     }
 
@@ -42,7 +42,7 @@ public class PlayerHealth : MonoBehaviour
     void OnTriggerEnter2D(Collider2D coll) {
         if (coll.gameObject.tag == "EnemyBullet")
         {
-            FindObjectOfType<SoundManager>().Play("PlayerHit");
+            soundManager.Play("PlayerHit");
             RemoveHealthPack();
             Destroy(coll.gameObject);
         }

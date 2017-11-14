@@ -7,6 +7,8 @@ public class Room : MonoBehaviour
     public GameObject bottomDoor;
     public GameObject topDoor;
 
+    private SoundManager soundManager;
+
     [HideInInspector]
     public Vector2 roomSize;
     [HideInInspector]
@@ -25,6 +27,7 @@ public class Room : MonoBehaviour
 
     private void Awake()
     {
+        soundManager = FindObjectOfType<SoundManager>();
         cam = FindObjectOfType<CameraController>();
         roomSize = GetCurrentRoomSize();
         roomManager = FindObjectOfType<RoomManager>();
@@ -37,7 +40,8 @@ public class Room : MonoBehaviour
             startingAmountOfEnemies++;
         amountOfEnemies = startingAmountOfEnemies;
         InitGrid();
-        FindObjectOfType<SoundManager>().Play("RoomEntering");
+
+        soundManager.Play("RoomEntering");
     }
 
     private void Update()

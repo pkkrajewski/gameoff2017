@@ -10,9 +10,12 @@ public class EnemyController : MonoBehaviour
     [HideInInspector]
     public SpriteRenderer spriteRenderer;
 
+    private SoundManager soundManager;
+
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        soundManager = FindObjectOfType<SoundManager>().GetComponent<SoundManager>();
     }
 
     private void Start()
@@ -41,7 +44,7 @@ public class EnemyController : MonoBehaviour
     {
         if (collider.tag == "Bullet")
         {
-            FindObjectOfType<SoundManager>().Play("EnemyHit");
+            soundManager.Play("EnemyHit");
             Destroy(collider.gameObject);
             health--;
 

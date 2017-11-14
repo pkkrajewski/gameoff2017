@@ -15,13 +15,20 @@ public class PlayerShooting : MonoBehaviour {
     public Animator mainAnimator;
     public Animator muzzleAnimator;
 
+    private SoundManager soundManager;
+
+    void Awake()
+    {
+        soundManager = FindObjectOfType<SoundManager>().GetComponent<SoundManager>();
+    }
+
     void Update ()
     {
         if (fireRateCounter <= 0)
         {
             if (Input.GetMouseButton(0))
             {
-                FindObjectOfType<SoundManager>().Play("PlayerShot");
+                soundManager.Play("PlayerShot");
 
                 fireRateCounter = fireRate;
 
