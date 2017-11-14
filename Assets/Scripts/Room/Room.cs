@@ -85,9 +85,15 @@ public class Room : MonoBehaviour
             GameObject newEnemy;
 
             if (Random.Range(0, 2) == 0)
+            {
                 newEnemy = Instantiate(roomManager.easyEnemyPrefab, transform);
+                newEnemy.name = roomManager.easyEnemyPrefab.name;
+            }
             else
+            {
                 newEnemy = Instantiate(roomManager.shootingEnemyPrefab, transform);
+                newEnemy.name = roomManager.shootingEnemyPrefab.name;
+            }
 
             //float offset = 1f;
             //float roomX = roomSize.x / 2 - offset;
