@@ -241,7 +241,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1661779849835630, guid: a802520fc459829458d83d60d1766dfb,
     type: 2}
   bulletSpawn: {fileID: 4627817821618780}
-  fireRate: 0.5
+  fireRate: 0.25
   bulletSpeed: 15
   bulletLifeTime: 3
   bulletBounce: 0
@@ -261,6 +261,7 @@ MonoBehaviour:
   healthPacksContainer: {fileID: 0}
   healthPackPrefab: {fileID: 1953296978691286, guid: 3be1840aaa382ed4ba0a9044c27fef3a,
     type: 2}
+  soundManager: {fileID: 0}
   healthPacksNumber: 4
 --- !u!212 &212069906796601172
 SpriteRenderer:
