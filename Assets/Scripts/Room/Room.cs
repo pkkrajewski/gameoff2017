@@ -211,7 +211,18 @@ public class Room : MonoBehaviour
     {
         if (hasEntered && collision.name == "Player")
         {
-            Destroy(gameObject, 4);
+            Invoke("DestroyMe", 4);
         }
+
+        if (player == null)
+        {
+            //so the room doesn't get destroyed when gameover
+            CancelInvoke();
+        }
+    }
+
+    public void DestroyMe()
+    {
+        Destroy(gameObject);
     }
 }
