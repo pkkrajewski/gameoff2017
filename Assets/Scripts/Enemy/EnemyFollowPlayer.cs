@@ -24,9 +24,6 @@ public class EnemyFollowPlayer : MonoBehaviour
             Vector3 direction = player.transform.position - transform.position;
             direction.Normalize();
 
-            if (gameObject.name != "ZombieEnemy")
-                transform.rotation = Quaternion.FromToRotation(Vector3.up, direction);
-
             body.MovePosition((Vector2)transform.position + (Vector2)direction * MoveSpeed * Time.deltaTime);
 
             if (mainAnimator)

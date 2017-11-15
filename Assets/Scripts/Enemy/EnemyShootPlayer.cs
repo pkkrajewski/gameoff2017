@@ -39,6 +39,8 @@ public class EnemyShootPlayer : MonoBehaviour
                 muzzleAnimator.Play("Muzzle");
             }
         }
+
+        transform.rotation = Quaternion.FromToRotation(Vector3.up, GetDirectionToPlayer());
     }
 
     void Shoot()
@@ -56,4 +58,6 @@ public class EnemyShootPlayer : MonoBehaviour
 
         return direction;
     }
+
+
 }
