@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -22,6 +23,7 @@ public class Room : MonoBehaviour
     private GameObject player;
     private RoomManager roomManager;
     private Tilemap tilemap;
+    private static List<Sprite> tilemapSprites;
     private static List<Vector3Int> gridPositions;
     private List<Vector3Int> freeGridPositions;
 
@@ -130,11 +132,34 @@ public class Room : MonoBehaviour
         return tilemap.CellToWorld(pos);
     }
 
+    private void ShuffleTilemap()
+    {
+        var shuffledList = tilemapSprites.OrderBy(x => Random.value).ToList();
+
+        int boundsX = (int)tilemap.localBounds.max.x;
+        int boundsY = (int)tilemap.localBounds.max.y;
+
+        int a = 0;
+
+        for (int x = -boundsX; x < boundsX; x++)
+        {
+            for (int y = -boundsY; y < boundsY; y++)
+            {
+                a++;
+                if (a >= gridPositions.Count) break;
+                Tile tile = (Tile)ScriptableObject.CreateInstance(typeof(Tile));
+                tile.sprite = shuffledList[a];
+                tilemap.SetTile(gridPositions[a], tile);
+            }
+        }
+    }
+
     private void InitGrid()
     {
         if (tilemap != null && gridPositions == null)
         {
             gridPositions = new List<Vector3Int>();
+            tilemapSprites = new List<Sprite>();
 
             int offsetX = 3;
             int offsetY = 1;
@@ -146,6 +171,8 @@ public class Room : MonoBehaviour
             {
                 for (int y = -boundsY + offsetY; y < boundsY - offsetY + 1; y++)
                 {
+                    tilemapSprites.Add(tilemap.GetSprite(new Vector3Int(x, y, 0)));
+
                     //not letting an enemy spawn where the player can enter the room
                     if (x > -5 && x < 5 && y < -3) continue;
 
@@ -156,6 +183,8 @@ public class Room : MonoBehaviour
         else
         {
             freeGridPositions = new List<Vector3Int>(gridPositions);
+
+            ShuffleTilemap();
         }
     }
 
