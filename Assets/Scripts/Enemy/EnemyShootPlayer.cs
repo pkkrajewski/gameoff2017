@@ -27,20 +27,22 @@ public class EnemyShootPlayer : MonoBehaviour
 	
 	void Update ()
     {
-        timeSinceLastShot += Time.deltaTime;
-
-        if (timeSinceLastShot >= currentInterval)
+        if (player != null)
         {
-            if (player != null)
-            {
-                Shoot();
-                timeSinceLastShot = 0;
-                currentInterval = Random.Range(MinInterval, MaxInterval);
-                muzzleAnimator.Play("Muzzle");
-            }
-        }
+            timeSinceLastShot += Time.deltaTime;
 
-        transform.rotation = Quaternion.FromToRotation(Vector3.up, GetDirectionToPlayer());
+            if (timeSinceLastShot >= currentInterval)
+            {
+                {
+                    Shoot();
+                    timeSinceLastShot = 0;
+                    currentInterval = Random.Range(MinInterval, MaxInterval);
+                    muzzleAnimator.Play("Muzzle");
+                }
+            }
+
+            transform.rotation = Quaternion.FromToRotation(Vector3.up, GetDirectionToPlayer());
+        }
     }
 
     void Shoot()
