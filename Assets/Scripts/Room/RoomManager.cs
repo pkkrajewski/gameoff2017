@@ -6,6 +6,8 @@ public class RoomManager : MonoBehaviour
     public GameObject roomPrefab;
     public GameObject easyEnemyPrefab;
     public GameObject shootingEnemyPrefab;
+
+    public GameObject playingInstructions;
     
     [HideInInspector]
     public Room currentRoom;
@@ -39,6 +41,9 @@ public class RoomManager : MonoBehaviour
     private void BeforeCreatingRoom()
     {
         roomNumber++;
+
+        if (roomNumber > 1)
+            playingInstructions.SetActive(false);
 
         EnemyShootPlayer.MaxInterval -= 0.04f;
         EnemyShootPlayer.BulletSpeed += 0.3f;
