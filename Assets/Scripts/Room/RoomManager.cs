@@ -8,6 +8,7 @@ public class RoomManager : MonoBehaviour
     public GameObject shootingEnemyPrefab;
 
     public GameObject playingInstructions;
+    public GameObject exitHint;
     
     [HideInInspector]
     public Room currentRoom;

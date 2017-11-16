@@ -43,6 +43,8 @@ public class Room : MonoBehaviour
         amountOfEnemies = startingAmountOfEnemies;
         InitGrid();
 
+        roomManager.exitHint.SetActive(false);
+
         soundManager.Play("RoomEntering");
     }
 
@@ -56,6 +58,7 @@ public class Room : MonoBehaviour
             if (amountOfEnemies <= 0 && transform.position != Vector3.zero)
             {
                 OpenTopDoor();
+                roomManager.exitHint.SetActive(true);
             }
         }
     }
