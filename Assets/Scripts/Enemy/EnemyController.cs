@@ -12,10 +12,13 @@ public class EnemyController : MonoBehaviour
 
     private SoundManager soundManager;
 
+    private SpriteFlash spriteFlash;
+
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         soundManager = FindObjectOfType<SoundManager>().GetComponent<SoundManager>();
+        spriteFlash = GetComponentInChildren<SpriteFlash>();
     }
 
     private void Start()
@@ -47,6 +50,7 @@ public class EnemyController : MonoBehaviour
             soundManager.Play("EnemyHit");
             Destroy(collider.gameObject);
             health--;
+            spriteFlash.Flash(.5f, .2f);
 
             if (health == 0)
             {

@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4706615157286172}
   - component: {fileID: 212280117909586234}
   - component: {fileID: 95810021093651994}
+  - component: {fileID: 114025363556656212}
   m_Layer: 0
   m_Name: Main Sprite
   m_TagString: Untagged
@@ -244,6 +245,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114025363556656212
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1050504762693702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcd690ee2b45e0f4ea8fe8843694652a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: a29ba89383b7ae54bbb7e9b074219ae2, type: 2}
 --- !u!114 &114226018062974196
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -271,7 +284,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 482aaf9e0d7a7854fa574dba11a93fa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3
+  health: 6
   room: {fileID: 0}
   spriteRenderer: {fileID: 0}
 --- !u!114 &114305334177110470

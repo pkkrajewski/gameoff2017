@@ -9,6 +9,13 @@ public class PlayerHealth : MonoBehaviour
 
     public int healthPacksNumber;
 
+    private SpriteFlash spriteFlash;
+
+    private void Awake()
+    {
+        spriteFlash = GetComponentInChildren<SpriteFlash>();
+    }
+
     void Start ()
     {
         for (int i = 0; i < healthPacksNumber; i++)
@@ -35,6 +42,8 @@ public class PlayerHealth : MonoBehaviour
 
     void RemoveHealthPack()
     {
+        spriteFlash.Flash(.5f, .2f);
+
         Destroy(GameObject.FindGameObjectWithTag("HealthPack"));
         healthPacksNumber--;
     }
