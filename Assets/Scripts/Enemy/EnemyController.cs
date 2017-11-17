@@ -5,13 +5,14 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     public int health;
+    public Sprite[] deadSprites;
+
     [HideInInspector]
     public Room room;
     [HideInInspector]
     public SpriteRenderer spriteRenderer;
 
     private SoundManager soundManager;
-
     private SpriteFlash spriteFlash;
 
     private void Awake()
@@ -23,6 +24,8 @@ public class EnemyController : MonoBehaviour
 
     private void Start()
     {
+        if (room == null) room = FindObjectOfType<Room>();
+
         Color color = spriteRenderer.color;
         color.a = 0;
         spriteRenderer.color = color;
@@ -57,9 +60,27 @@ public class EnemyController : MonoBehaviour
                 if(room != null)
                     room.amountOfEnemies--;
 
-                Destroy(gameObject);
+                //Destroy(gameObject);
+
+                Dead();
             }
         }
+    }
+
+    private void Dead()
+    {
+        if (deadSprites.Length > 0)
+        {
+            GameObject dead = new GameObject("Dead Sprite " + transform.name);
+            SpriteRenderer spr = dead.AddComponent<SpriteRenderer>();
+            spr.sprite = deadSprites[Random.Range(0, deadSprites.Length)];
+            dead.transform.position = transform.position;
+            dead.transform.localScale = transform.localScale * 3.3f;
+            dead.transform.SetParent(room.transform);
+            dead.transform.rotation = Quaternion.Euler(0,0, Random.Range(0, 360));
+        }
+
+        Destroy(gameObject);
     }
 
     private void OnDestroy()
