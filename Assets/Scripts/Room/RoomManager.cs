@@ -36,7 +36,7 @@ public class RoomManager : MonoBehaviour
         float y = currentRoom.transform.position.y + room.roomSize.y;
         newRoom.transform.position = new Vector2(x, y);
 
-        roomText.text = "room: " + roomNumber;
+        roomText.text = "" + roomNumber;
     }
 
     private void BeforeCreatingRoom()
