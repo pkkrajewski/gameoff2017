@@ -39,9 +39,11 @@ GameObject:
   - component: {fileID: 114032315252810626}
   - component: {fileID: 114704949564666168}
   - component: {fileID: 50701150279916962}
+  - component: {fileID: 114425592472466488}
+  - component: {fileID: 114213684006021314}
   m_Layer: 11
   m_Name: ZombieEnemy
-  m_TagString: Untagged
+  m_TagString: ZombieEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -258,6 +260,36 @@ MonoBehaviour:
   health: 3
   room: {fileID: 0}
   spriteRenderer: {fileID: 0}
+--- !u!114 &114213684006021314
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1571730795627296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8eaeb60586fe584a968dc7ed834d917, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114425592472466488
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1571730795627296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4ddedb3b505bc947905c86f488419dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectsCausingExplosion:
+  - Bullet
+  - EnemyBullet
+  - Player
+  timeBeforeExplosion: 0.75
+  radius: 1.25
+  explosionEffectPrefab: {fileID: 1319128139637446, guid: b7e66bf0818fd134eb43441256a089fd,
+    type: 2}
 --- !u!114 &114704949564666168
 MonoBehaviour:
   m_ObjectHideFlags: 1

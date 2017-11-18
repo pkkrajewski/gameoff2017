@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
@@ -13,6 +11,17 @@ public class EnemyController : MonoBehaviour
     private SoundManager soundManager;
 
     private SpriteFlash spriteFlash;
+
+    public void RemoveHealth(int number)
+    {
+        soundManager.Play("EnemyHit");
+        spriteFlash.Flash(.5f, .2f);
+
+        health -= number;
+
+        if (health <= 0)
+            Destroy(gameObject);
+    }
 
     private void Awake()
     {
@@ -47,23 +56,14 @@ public class EnemyController : MonoBehaviour
     {
         if (collider.tag == "Bullet")
         {
-            soundManager.Play("EnemyHit");
             Destroy(collider.gameObject);
-            health--;
-            spriteFlash.Flash(.5f, .2f);
-
-            if (health == 0)
-            {
-                if(room != null)
-                    room.amountOfEnemies--;
-
-                Destroy(gameObject);
-            }
+            RemoveHealth(1);
         }
     }
 
     private void OnDestroy()
     {
+        room.amountOfEnemies--;
         GameManager.enemiesDestroyed++;
     }
 }

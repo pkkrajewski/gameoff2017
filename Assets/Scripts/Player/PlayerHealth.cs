@@ -11,6 +11,30 @@ public class PlayerHealth : MonoBehaviour
 
     private SpriteFlash spriteFlash;
 
+    public void AddHealthPack()
+    {
+        if (healthPackPrefab != null)
+        {
+            Instantiate(healthPackPrefab, healthPacksContainer);
+        }
+    }
+
+    public void RemoveHealthPacks(int number)
+    {
+        spriteFlash.Flash(.5f, .2f);
+
+        if (number > healthPacksNumber)
+            number = healthPacksNumber;
+
+        GameObject[] healthPackSprites = GameObject.FindGameObjectsWithTag("HealthPack");
+        for (int i = 0; i < number; i++)
+        {
+            Destroy(healthPackSprites[i]);
+        }
+
+        healthPacksNumber -= number;
+    }
+
     private void Awake()
     {
         spriteFlash = GetComponentInChildren<SpriteFlash>();
@@ -32,27 +56,11 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    void AddHealthPack()
-    {
-        if (healthPackPrefab != null)
-        {
-            Instantiate(healthPackPrefab, healthPacksContainer);
-        }
-    }
-
-    void RemoveHealthPack()
-    {
-        spriteFlash.Flash(.5f, .2f);
-
-        Destroy(GameObject.FindGameObjectWithTag("HealthPack"));
-        healthPacksNumber--;
-    }
-
     void OnTriggerEnter2D(Collider2D coll) {
         if (coll.gameObject.tag == "EnemyBullet")
         {
             soundManager.Play("PlayerHit");
-            RemoveHealthPack();
+            RemoveHealthPacks(1);
             Destroy(coll.gameObject);
         }
     }

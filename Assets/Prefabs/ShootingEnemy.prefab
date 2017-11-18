@@ -90,9 +90,10 @@ GameObject:
   - component: {fileID: 114305334177110470}
   - component: {fileID: 114226018062974196}
   - component: {fileID: 50781143630303484}
+  - component: {fileID: 114312975511455444}
   m_Layer: 11
   m_Name: ShootingEnemy
-  m_TagString: Untagged
+  m_TagString: ShootingEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -300,6 +301,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keepDistance: 3
   mainAnimator: {fileID: 95810021093651994}
+--- !u!114 &114312975511455444
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1899927898475104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af30faaab88b3824ba5a1153a26647d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212017927359576766
 SpriteRenderer:
   m_ObjectHideFlags: 1

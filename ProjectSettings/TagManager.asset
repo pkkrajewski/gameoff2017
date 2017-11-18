@@ -8,6 +8,9 @@ TagManager:
   - HealthPack
   - Wall
   - EnemyBullet
+  - ShootingEnemy
+  - ZombieEnemy
+  - Barrel
   layers:
   - Default
   - TransparentFX
