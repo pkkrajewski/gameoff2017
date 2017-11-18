@@ -20,11 +20,7 @@ public class EnemyController : MonoBehaviour
         health -= number;
 
         if (health <= 0)
-        {
-            if(room != null)
-                room.amountOfEnemies--;
             Dead();
-        }
 
         soundManager.Play("EnemyHit");
     }
