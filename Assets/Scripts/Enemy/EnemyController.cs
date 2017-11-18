@@ -3,24 +3,30 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     public int health;
+    public Sprite[] deadSprites;
+
     [HideInInspector]
     public Room room;
     [HideInInspector]
     public SpriteRenderer spriteRenderer;
 
     private SoundManager soundManager;
-
     private SpriteFlash spriteFlash;
 
     public void RemoveHealth(int number)
     {
-        soundManager.Play("EnemyHit");
         spriteFlash.Flash(.5f, .2f);
 
         health -= number;
 
         if (health <= 0)
-            Destroy(gameObject);
+        {
+            if(room != null)
+                room.amountOfEnemies--;
+            Dead();
+        }
+
+        soundManager.Play("EnemyHit");
     }
 
     private void Awake()
@@ -32,6 +38,9 @@ public class EnemyController : MonoBehaviour
 
     private void Start()
     {
+        if (room == null)
+            room = FindObjectOfType<Room>();
+
         Color color = spriteRenderer.color;
         color.a = 0;
         spriteRenderer.color = color;
@@ -57,8 +66,24 @@ public class EnemyController : MonoBehaviour
         if (collider.tag == "Bullet")
         {
             Destroy(collider.gameObject);
-            RemoveHealth(1);
+	        RemoveHealth(1);
         }
+    }
+
+    private void Dead()
+    {
+        if (deadSprites.Length > 0)
+        {
+            GameObject dead = new GameObject("Dead Sprite " + transform.name);
+            SpriteRenderer spr = dead.AddComponent<SpriteRenderer>();
+            spr.sprite = deadSprites[Random.Range(0, deadSprites.Length)];
+            dead.transform.position = transform.position;
+            dead.transform.localScale = transform.localScale * 3.3f;
+            dead.transform.SetParent(room.transform);
+            dead.transform.rotation = Quaternion.Euler(0,0, Random.Range(0, 360));
+        }
+
+        Destroy(gameObject);
     }
 
     private void OnDestroy()

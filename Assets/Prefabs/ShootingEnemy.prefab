@@ -286,6 +286,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 6
+  deadSprites:
+  - {fileID: 21300000, guid: 78145a48d2bc34c4c928ea69a42cf064, type: 3}
+  - {fileID: 21300002, guid: 78145a48d2bc34c4c928ea69a42cf064, type: 3}
+  - {fileID: 21300004, guid: 78145a48d2bc34c4c928ea69a42cf064, type: 3}
+  - {fileID: 21300006, guid: 78145a48d2bc34c4c928ea69a42cf064, type: 3}
+  - {fileID: 21300008, guid: 78145a48d2bc34c4c928ea69a42cf064, type: 3}
+  - {fileID: 21300010, guid: 78145a48d2bc34c4c928ea69a42cf064, type: 3}
+  - {fileID: 21300012, guid: 78145a48d2bc34c4c928ea69a42cf064, type: 3}
   room: {fileID: 0}
   spriteRenderer: {fileID: 0}
 --- !u!114 &114305334177110470
