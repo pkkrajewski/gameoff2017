@@ -1819,7 +1819,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1688528083
 Prefab:
@@ -2460,7 +2460,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4710836733511814, guid: 1dfe0710f10ebc844a20e0be94587b1b, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1dfe0710f10ebc844a20e0be94587b1b, type: 2}
@@ -2579,6 +2579,18 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 9d7f95c3d9438404bb3ca46a909b0bd6, type: 3}
     - {fileID: 8300000, guid: 176decdeb02101446a2b4672bdd1d5a4, type: 3}
     - {fileID: 8300000, guid: 4e31b424b87c5194bb69dde7542d720d, type: 3}
+    volume: 0.3
+    source: {fileID: 0}
+  - name: Explosion
+    clips:
+    - {fileID: 8300000, guid: f05e2943867421141ae79ad6b62cc1e7, type: 3}
+    - {fileID: 8300000, guid: 7b05dc80320cfff4c9dafb2df88ef44f, type: 3}
+    - {fileID: 8300000, guid: 43522c01038f8ad479fb123b8faa2149, type: 3}
+    - {fileID: 8300000, guid: 1aef51dbac0a5484bab2264dca4ae225, type: 3}
+    - {fileID: 8300000, guid: e5dfacab6f5bead4ca96ed87ed26a6ea, type: 3}
+    - {fileID: 8300000, guid: 4d8b5b6c819af4341b26ef1691305bce, type: 3}
+    - {fileID: 8300000, guid: 8bf3d413443adeb4ba049159f9605e9f, type: 3}
+    - {fileID: 8300000, guid: f86ec7a8fe99c0e4bbec373a10f0dae9, type: 3}
     volume: 0.3
     source: {fileID: 0}
 --- !u!4 &1978846802
