@@ -30,6 +30,9 @@ public class Explode : MonoBehaviour
         effectInstance.radius = radius;
         effectInstance.Execute();
 
+        if (gameObject.tag == "ZombieEnemy")
+            gameObject.GetComponent<EnemyController>().TryToDropBonus(10);
+
         Destroy(gameObject);
     }
 

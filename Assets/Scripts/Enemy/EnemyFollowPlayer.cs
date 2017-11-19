@@ -24,7 +24,14 @@ public class EnemyFollowPlayer : MonoBehaviour
             Vector3 direction = player.transform.position - transform.position;
             direction.Normalize();
 
-            body.MovePosition((Vector2)transform.position + (Vector2)direction * MoveSpeed * Time.deltaTime);
+            float scalar = 1.0f;
+
+            if (Bonus.activeBonusName == "FasterEnemyWalking")
+                scalar = 1.5f;
+            else if (Bonus.activeBonusName == "SlowerEnemyWalking")
+                scalar = 0.75f;
+
+            body.MovePosition((Vector2)transform.position + (Vector2)direction * MoveSpeed * scalar * Time.deltaTime);
 
             if (mainAnimator)
                 mainAnimator.SetBool("walking", true);

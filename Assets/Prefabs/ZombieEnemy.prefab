@@ -258,6 +258,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
+  deadSprites: []
+  bonusPrefab: {fileID: 1216372884584600, guid: 37750d9b8d02aef4d8f79a3598e61c19,
+    type: 2}
   room: {fileID: 0}
   spriteRenderer: {fileID: 0}
 --- !u!114 &114213684006021314

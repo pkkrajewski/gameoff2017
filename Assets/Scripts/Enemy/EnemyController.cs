@@ -5,6 +5,8 @@ public class EnemyController : MonoBehaviour
     public int health;
     public Sprite[] deadSprites;
 
+    public GameObject bonusPrefab;
+
     [HideInInspector]
     public Room room;
     [HideInInspector]
@@ -23,6 +25,12 @@ public class EnemyController : MonoBehaviour
             Dead();
 
         soundManager.Play("EnemyHit");
+    }
+
+    public void TryToDropBonus(int chance)
+    {
+        if (Random.Range(0, chance) == 0)
+            Instantiate(bonusPrefab, transform.position, Quaternion.identity);
     }
 
     private void Awake()
@@ -78,6 +86,8 @@ public class EnemyController : MonoBehaviour
             dead.transform.SetParent(room.transform);
             dead.transform.rotation = Quaternion.Euler(0,0, Random.Range(0, 360));
         }
+
+        TryToDropBonus(10);
 
         Destroy(gameObject);
     }

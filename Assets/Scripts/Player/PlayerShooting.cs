@@ -32,6 +32,11 @@ public class PlayerShooting : MonoBehaviour {
 
                 fireRateCounter = fireRate;
 
+                if (Bonus.activeBonusName == "SlowerPlayerShooting")
+                    fireRateCounter *= 1.5f;
+                else if (Bonus.activeBonusName == "FasterPlayerShooting")
+                    fireRateCounter *= 0.75f;
+
                 GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, Quaternion.identity);
                 bullet.GetComponent<Rigidbody2D>().velocity = GetDirectionToMouse() * bulletSpeed;
                 bullet.GetComponent<BulletController>().bulletLifeTime = bulletLifeTime;

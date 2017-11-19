@@ -11,6 +11,7 @@ TagManager:
   - ShootingEnemy
   - ZombieEnemy
   - Barrel
+  - Bonus
   layers:
   - Default
   - TransparentFX

@@ -294,6 +294,8 @@ MonoBehaviour:
   - {fileID: 21300008, guid: 78145a48d2bc34c4c928ea69a42cf064, type: 3}
   - {fileID: 21300010, guid: 78145a48d2bc34c4c928ea69a42cf064, type: 3}
   - {fileID: 21300012, guid: 78145a48d2bc34c4c928ea69a42cf064, type: 3}
+  bonusPrefab: {fileID: 1216372884584600, guid: 37750d9b8d02aef4d8f79a3598e61c19,
+    type: 2}
   room: {fileID: 0}
   spriteRenderer: {fileID: 0}
 --- !u!114 &114305334177110470

@@ -33,12 +33,16 @@ public class EnemyShootPlayer : MonoBehaviour
 
             if (timeSinceLastShot >= currentInterval)
             {
-                {
-                    Shoot();
-                    timeSinceLastShot = 0;
-                    currentInterval = Random.Range(MinInterval, MaxInterval);
-                    muzzleAnimator.Play("Muzzle");
-                }
+                Shoot();
+                timeSinceLastShot = 0;
+
+                currentInterval = Random.Range(MinInterval, MaxInterval);
+                if (Bonus.activeBonusName == "FasterEnemyShooting")
+                    currentInterval *= 0.75f;
+                else if (Bonus.activeBonusName == "SlowerEnemyShooting")
+                    currentInterval *= 1.5f;
+
+                muzzleAnimator.Play("Muzzle");
             }
 
             transform.rotation = Quaternion.FromToRotation(Vector3.up, GetDirectionToPlayer());

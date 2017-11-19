@@ -7,32 +7,36 @@ public class PlayerHealth : MonoBehaviour
 
     public SoundManager soundManager;
 
-    public int healthPacksNumber;
+    public int startingHealthPacksNumber;
+
+    private int healthPacksNumber;
 
     private SpriteFlash spriteFlash;
 
-    public void AddHealthPack()
+    public void AddHealthPacks(int number)
     {
-        if (healthPackPrefab != null)
-        {
+        for(int i = 0; i < number; i++)
             Instantiate(healthPackPrefab, healthPacksContainer);
-        }
+        healthPacksNumber += number;
     }
 
     public void RemoveHealthPacks(int number)
     {
-        spriteFlash.Flash(.5f, .2f);
-
-        if (number > healthPacksNumber)
-            number = healthPacksNumber;
-
-        GameObject[] healthPackSprites = GameObject.FindGameObjectsWithTag("HealthPack");
-        for (int i = 0; i < number; i++)
+        if (Bonus.activeBonusName != "PlayerImmortality")
         {
-            Destroy(healthPackSprites[i]);
-        }
+            spriteFlash.Flash(.5f, .2f);
 
-        healthPacksNumber -= number;
+            if (number > healthPacksNumber)
+                number = healthPacksNumber;
+
+            GameObject[] healthPackSprites = GameObject.FindGameObjectsWithTag("HealthPack");
+            for (int i = 0; i < number; i++)
+            {
+                Destroy(healthPackSprites[i]);
+            }
+
+            healthPacksNumber -= number;
+        }
     }
 
     private void Awake()
@@ -42,12 +46,22 @@ public class PlayerHealth : MonoBehaviour
 
     void Start ()
     {
-        for (int i = 0; i < healthPacksNumber; i++)
-            AddHealthPack();
+        AddHealthPacks(startingHealthPacksNumber);
 	}
 
     void Update()
     {
+        if (Bonus.activeBonusName == "HealthPacks+1")
+        {
+            AddHealthPacks(1);
+            Bonus.activeBonusName = "";
+        }
+        else if(Bonus.activeBonusName == "HealthPacks-1")
+        {
+            RemoveHealthPacks(1);
+            Bonus.activeBonusName = "";
+        }
+
         if (IsDead())
         {
             soundManager.Play("GameOver");

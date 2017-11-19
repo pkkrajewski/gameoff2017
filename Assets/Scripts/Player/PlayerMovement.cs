@@ -15,6 +15,12 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         Vector2 targetVelocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+
+        if (Bonus.activeBonusName == "SlowerPlayerWalking")
+            targetVelocity *= 0.75f;
+        else if (Bonus.activeBonusName == "FasterPlayerWalking")
+            targetVelocity *= 1.5f;
+
         body.velocity = targetVelocity * movementSpeed;
 
         if (body.velocity != Vector2.zero)
