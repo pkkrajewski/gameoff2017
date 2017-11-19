@@ -27,7 +27,7 @@ public class SoundManager : MonoBehaviour
             }
         }
 
-        if (!soundFound)
-            Debug.LogError("SoundManager doesn't have sound: " + name);
+        //if (!soundFound)
+        //    Debug.LogError("SoundManager doesn't have sound: " + name);
     }
 }

@@ -10,8 +10,19 @@ public class Explode : MonoBehaviour
 
     static string[] hittableObjectTags = new string[] {"Player", "ShootingEnemy", "ZombieEnemy", "Barrel"};
 
+    private Animator animator;
+
+    private void Awake()
+    {
+        animator = GetComponentInChildren<Animator>();
+    }
+
     public void Execute()
     {
+        if (animator != null)
+            if (gameObject.CompareTag("ZombieEnemy"))
+                animator.Play("Spider_explode");
+
         Invoke("SendMessageToNearObjects", timeBeforeExplosion);
     }
 
@@ -30,10 +41,12 @@ public class Explode : MonoBehaviour
         effectInstance.radius = radius;
         effectInstance.Execute();
 
-        if (gameObject.tag == "ZombieEnemy")
-            gameObject.GetComponent<EnemyController>().TryToDropBonus(10);
-
-        Destroy(gameObject);
+        if (gameObject.CompareTag("ZombieEnemy"))
+        {
+            gameObject.GetComponent<EnemyController>().Dead();
+        }
+        else
+            Destroy(gameObject);
     }
 
     bool IsHittable(string tag)

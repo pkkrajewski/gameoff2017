@@ -74,7 +74,7 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    private void Dead()
+    public void Dead()
     {
         if (deadSprites.Length > 0)
         {
