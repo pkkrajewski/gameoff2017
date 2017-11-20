@@ -13,6 +13,8 @@ public class EnemyShootPlayer : MonoBehaviour
     float currentInterval;
     float timeSinceLastShot = -1;
 
+    private Transform bulletsContainer;
+
     private Transform player;
     private SoundManager soundManager;
 
@@ -21,6 +23,7 @@ public class EnemyShootPlayer : MonoBehaviour
 
     void Start ()
     {
+        bulletsContainer = GameObject.FindGameObjectWithTag("BulletsContainer").transform;
         player = GameObject.FindGameObjectWithTag("Player").transform;
         soundManager = FindObjectOfType<SoundManager>().GetComponent<SoundManager>();
 	}
@@ -51,8 +54,9 @@ public class EnemyShootPlayer : MonoBehaviour
 
     void Shoot()
     {
-        GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, Quaternion.identity);
+        GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, Quaternion.identity, bulletsContainer);
         bullet.GetComponent<Rigidbody2D>().velocity = GetDirectionToPlayer() * BulletSpeed;
+        bullet.GetComponent<BulletVelocitySaver>().Save();
         soundManager.Play("EnemyShot");
     }
 

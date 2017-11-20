@@ -8,6 +8,8 @@ public class Room : MonoBehaviour
     public GameObject bottomDoor;
     public GameObject topDoor;
 
+    private GameObject playState;
+
     private SoundManager soundManager;
 
     [HideInInspector]
@@ -29,6 +31,7 @@ public class Room : MonoBehaviour
 
     private void Awake()
     {
+        playState = FindObjectOfType<PlayState>().gameObject;
         soundManager = FindObjectOfType<SoundManager>();
         cam = FindObjectOfType<CameraController>();
         roomSize = GetCurrentRoomSize();
@@ -212,15 +215,18 @@ public class Room : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (hasEntered && collision.name == "Player")
+        if (playState.activeInHierarchy)
         {
-            Invoke("DestroyMe", 4);
-        }
+            if (hasEntered && collision.name == "Player")
+            {
+                Invoke("DestroyMe", 4);
+            }
 
-        if (player == null)
-        {
-            //so the room doesn't get destroyed when gameover
-            CancelInvoke();
+            if (player == null)
+            {
+                //so the room doesn't get destroyed when gameover
+                CancelInvoke();
+            }
         }
     }
 
