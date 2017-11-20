@@ -2796,13 +2796,14 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: EnemyShot
     clips:
-    - {fileID: 8300000, guid: 3baeb81a3b7948445b7ca313ff1b0c20, type: 3}
-    volume: 0
+    - {fileID: 8300000, guid: 2c2b0e9ca28e53247a65f39c5f29129e, type: 3}
+    - {fileID: 8300000, guid: 723b915dc0041fa41bf171b1b6710d74, type: 3}
+    volume: 0.4
     source: {fileID: 0}
   - name: EnemyHit
     clips:
-    - {fileID: 8300000, guid: 3baeb81a3b7948445b7ca313ff1b0c20, type: 3}
-    volume: 0
+    - {fileID: 8300000, guid: 1634d547712404144a2e64429b148ede, type: 3}
+    volume: 0.3
     source: {fileID: 0}
 --- !u!4 &1978846802
 Transform:
