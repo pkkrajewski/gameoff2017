@@ -2772,6 +2772,38 @@ MonoBehaviour:
     - {fileID: 8300000, guid: f86ec7a8fe99c0e4bbec373a10f0dae9, type: 3}
     volume: 0.3
     source: {fileID: 0}
+  - name: RoomEntering
+    clips:
+    - {fileID: 8300000, guid: 4a469c5ee232f6540a55397bbebfd921, type: 3}
+    volume: 0.1
+    source: {fileID: 0}
+  - name: PlayerHit
+    clips:
+    - {fileID: 8300000, guid: 334fdc9d37e74564496b092be945f21c, type: 3}
+    - {fileID: 8300000, guid: 08015a834c87de249b004afa94a048b2, type: 3}
+    - {fileID: 8300000, guid: 288727ce9a4d7944bb917d3df0acc575, type: 3}
+    volume: 1
+    source: {fileID: 0}
+  - name: Bonus
+    clips:
+    - {fileID: 8300000, guid: 0adb12da35ad13849a9532e691087ce1, type: 3}
+    volume: 0.665
+    source: {fileID: 0}
+  - name: GameOver
+    clips:
+    - {fileID: 8300000, guid: 3baeb81a3b7948445b7ca313ff1b0c20, type: 3}
+    volume: 0.1
+    source: {fileID: 0}
+  - name: EnemyShot
+    clips:
+    - {fileID: 8300000, guid: 3baeb81a3b7948445b7ca313ff1b0c20, type: 3}
+    volume: 0
+    source: {fileID: 0}
+  - name: EnemyHit
+    clips:
+    - {fileID: 8300000, guid: 3baeb81a3b7948445b7ca313ff1b0c20, type: 3}
+    volume: 0
+    source: {fileID: 0}
 --- !u!4 &1978846802
 Transform:
   m_ObjectHideFlags: 0
