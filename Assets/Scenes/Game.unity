@@ -373,7 +373,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 196019103}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 179.8999, y: -87.89996, z: 0}
+  m_LocalPosition: {x: 179.90002, y: -87.89996, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1543179024}
@@ -500,7 +500,7 @@ RectTransform:
   m_GameObject: {fileID: 275605129}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1.0626221, y: -0.57922363, z: 0.082595825}
-  m_LocalScale: {x: 0.008016979, y: 0.008016979, z: 0.008016979}
+  m_LocalScale: {x: 0.008020717, y: 0.008020717, z: 0.008020717}
   m_Children:
   - {fileID: 1348625636}
   - {fileID: 565050689}
@@ -1776,6 +1776,7 @@ MonoBehaviour:
     type: 2}
   shootingEnemyPrefab: {fileID: 1899927898475104, guid: 072578a2da18bc847ac6b0ef4dccea45,
     type: 2}
+  barrel: {fileID: 1300242945100994, guid: 8d60b3dda3a8219458d762ac94ff8aee, type: 2}
   playingInstructions: {fileID: 883623566}
   exitHint: {fileID: 1187746056}
   currentRoom: {fileID: 0}
@@ -2259,7 +2260,7 @@ RectTransform:
   m_GameObject: {fileID: 1543179020}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0.008016979, y: 0.008016979, z: 0.008016979}
+  m_LocalScale: {x: 0.008020717, y: 0.008020717, z: 0.008020717}
   m_Children:
   - {fileID: 196019104}
   - {fileID: 1311348}
@@ -2460,6 +2461,26 @@ Prefab:
         type: 2}
       propertyPath: startingHealthPacksNumber
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 61237489805235266, guid: ac625af71b0b64a498ed0dbe67688dee,
+        type: 2}
+      propertyPath: m_Offset.x
+      value: -0.09903234
+      objectReference: {fileID: 0}
+    - target: {fileID: 61237489805235266, guid: ac625af71b0b64a498ed0dbe67688dee,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 0.50193536
+      objectReference: {fileID: 0}
+    - target: {fileID: 61237489805235266, guid: ac625af71b0b64a498ed0dbe67688dee,
+        type: 2}
+      propertyPath: m_Offset.y
+      value: -0.11425626
+      objectReference: {fileID: 0}
+    - target: {fileID: 61237489805235266, guid: ac625af71b0b64a498ed0dbe67688dee,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 0.47148752
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ac625af71b0b64a498ed0dbe67688dee, type: 2}

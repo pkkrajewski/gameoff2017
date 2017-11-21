@@ -88,6 +88,8 @@ public class Room : MonoBehaviour
 
             if(transform.position != Vector3.zero)
                 PlaceEnemies();
+
+            PlaceBarrels();
         }
     }
 
@@ -121,6 +123,16 @@ public class Room : MonoBehaviour
             newEnemy.transform.position = GiveFreeGridPosition();
 
             newEnemy.GetComponent<EnemyController>().room = this;
+        }
+    }
+
+    private void PlaceBarrels()
+    {
+        int amountBarrels = Random.Range(0, 3);
+        for (int i = 0; i < amountBarrels; i++)
+        {
+            GameObject barrel = Instantiate(roomManager.barrel, transform);
+            barrel.transform.position = GiveFreeGridPosition();
         }
     }
 
