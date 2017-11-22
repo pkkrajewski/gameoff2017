@@ -89,7 +89,8 @@ public class Room : MonoBehaviour
             if(transform.position != Vector3.zero)
                 PlaceEnemies();
 
-            PlaceBarrels();
+            if (transform.position != Vector3.zero)
+                PlaceBarrels();
         }
     }
 

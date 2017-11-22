@@ -22,6 +22,8 @@ public class Explode : MonoBehaviour
         if (animator != null)
             if (gameObject.CompareTag("ZombieEnemy"))
                 animator.Play("Spider_explode");
+            else if (gameObject.CompareTag("Barrel"))
+                animator.Play("Barrel_explode");
 
         Invoke("SendMessageToNearObjects", timeBeforeExplosion);
     }
