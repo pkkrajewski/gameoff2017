@@ -443,6 +443,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114282209008153576, guid: 6d0a5daa1e1d20f42a65b77be163f536,
+        type: 2}
+      propertyPath: musicTracks.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 01a0024ca0472e94f800bc019bc52705, type: 3}
+    - target: {fileID: 114282209008153576, guid: 6d0a5daa1e1d20f42a65b77be163f536,
+        type: 2}
+      propertyPath: musicTracks.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 877ac9ad9dba7c74bb64615b590d5b78, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6d0a5daa1e1d20f42a65b77be163f536, type: 2}
   m_IsPrefabParent: 0
