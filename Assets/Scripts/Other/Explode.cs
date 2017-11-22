@@ -87,7 +87,7 @@ public class Explode : MonoBehaviour
 
     void DestroyIfBullet(GameObject o)
     {
-        if (o.tag == "Bullet" || o.tag == "PlayerBullet")
+        if (o.tag == "Bullet" || o.tag == "EnemyBullet")
             Destroy(o);
     }
 }
