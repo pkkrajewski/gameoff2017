@@ -357,7 +357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 482aaf9e0d7a7854fa574dba11a93fa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 4
+  health: 10
   deadSprites:
   - {fileID: 21300000, guid: 78145a48d2bc34c4c928ea69a42cf064, type: 3}
   - {fileID: 21300002, guid: 78145a48d2bc34c4c928ea69a42cf064, type: 3}
