@@ -12,4 +12,9 @@ public class PauseMenuState : MonoBehaviour
             gameObject.SetActive(false);
         }
 	}
+
+    public void OnClickExit()
+    {
+        Application.Quit();
+    }
 }
