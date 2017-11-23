@@ -12,9 +12,12 @@ public class Explode : MonoBehaviour
 
     private Animator animator;
 
+    private GameObject instantiatedObjects;
+
     private void Awake()
     {
         animator = GetComponentInChildren<Animator>();
+        instantiatedObjects = GameObject.FindGameObjectWithTag("InstantiatedObjects");
     }
 
     public void Execute()
@@ -39,7 +42,7 @@ public class Explode : MonoBehaviour
             }
         }
 
-        ExplosionEffect effectInstance = Instantiate(explosionEffectPrefab, transform.position, Quaternion.identity).GetComponent<ExplosionEffect>();
+        ExplosionEffect effectInstance = Instantiate(explosionEffectPrefab, transform.position, Quaternion.identity, instantiatedObjects.transform).GetComponent<ExplosionEffect>();
         effectInstance.radius = radius;
         effectInstance.Execute();
 

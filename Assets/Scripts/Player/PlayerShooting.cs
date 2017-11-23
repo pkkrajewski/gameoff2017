@@ -15,13 +15,13 @@ public class PlayerShooting : MonoBehaviour {
     public Animator mainAnimator;
     public Animator muzzleAnimator;
 
-    private Transform bulletsContainer;
+    private Transform instantiatedObjects;
 
     private SoundManager soundManager;
 
     void Awake()
     {
-        bulletsContainer = GameObject.FindGameObjectWithTag("BulletsContainer").transform;
+        instantiatedObjects = GameObject.FindGameObjectWithTag("InstantiatedObjects").transform;
         soundManager = FindObjectOfType<SoundManager>().GetComponent<SoundManager>();
     }
 
@@ -40,7 +40,7 @@ public class PlayerShooting : MonoBehaviour {
                 else if (Bonus.activeBonusName == "FasterPlayerShooting")
                     fireRateCounter *= 0.75f;
 
-                GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, Quaternion.identity, bulletsContainer);
+                GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, Quaternion.identity, instantiatedObjects);
                 bullet.GetComponent<Rigidbody2D>().velocity = GetDirectionToMouse() * bulletSpeed;
                 bullet.GetComponent<BulletVelocitySaver>().Save();
                 bullet.GetComponent<BulletController>().bulletLifeTime = bulletLifeTime;

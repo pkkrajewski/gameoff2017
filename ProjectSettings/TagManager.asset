@@ -12,7 +12,7 @@ TagManager:
   - ZombieEnemy
   - Barrel
   - Bonus
-  - BulletsContainer
+  - InstantiatedObjects
   layers:
   - Default
   - TransparentFX
