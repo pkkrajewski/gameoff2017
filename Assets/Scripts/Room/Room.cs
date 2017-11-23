@@ -100,7 +100,12 @@ public class Room : MonoBehaviour
         {
             GameObject newEnemy;
 
-            if (Random.Range(0, 2) == 0)
+            if (Random.Range(0, 5) == 0)
+            {
+                newEnemy = Instantiate(roomManager.tankPrefab, transform);
+                newEnemy.name = roomManager.tankPrefab.name;
+            }
+            else if (Random.Range(0, 2) == 0)
             {
                 newEnemy = Instantiate(roomManager.easyEnemyPrefab, transform);
                 newEnemy.name = roomManager.easyEnemyPrefab.name;
@@ -132,7 +137,7 @@ public class Room : MonoBehaviour
         int amountBarrels = Random.Range(0, 3);
         for (int i = 0; i < amountBarrels; i++)
         {
-            GameObject barrel = Instantiate(roomManager.barrel, transform);
+            GameObject barrel = Instantiate(roomManager.barrelPrefab, transform);
             barrel.transform.position = GiveFreeGridPosition();
         }
     }

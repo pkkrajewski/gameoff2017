@@ -6,7 +6,8 @@ public class RoomManager : MonoBehaviour
     public GameObject roomPrefab;
     public GameObject easyEnemyPrefab;
     public GameObject shootingEnemyPrefab;
-    public GameObject barrel;
+    public GameObject barrelPrefab;
+    public GameObject tankPrefab;
 
     public GameObject playingInstructions;
     public GameObject exitHint;

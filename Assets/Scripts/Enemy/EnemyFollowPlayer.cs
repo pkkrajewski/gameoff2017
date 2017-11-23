@@ -31,10 +31,30 @@ public class EnemyFollowPlayer : MonoBehaviour
             else if (Bonus.activeBonusName == "SlowerEnemyWalking")
                 scalar = 0.75f;
 
-            body.MovePosition((Vector2)transform.position + (Vector2)direction * MoveSpeed * scalar * Time.deltaTime);
+            float spd = MoveSpeed;
+
+            if (gameObject.name == "TankEnemy")
+            {
+                spd = MoveSpeed / 3;
+
+                //tank can only move 1 direction at a time
+                if (direction.x < direction.y)
+                    direction.y = 0;
+                else
+                    direction.x = 0;
+
+                //mainAnimator.transform.rotation = Quaternion.FromToRotation(Vector3.up, direction);
+                body.MovePosition((Vector2)transform.position + (Vector2)direction * spd * scalar * Time.deltaTime);
+            }
+            else
+            {
+                body.MovePosition((Vector2)transform.position + (Vector2)direction * spd * scalar * Time.deltaTime);
+            }
+
 
             if (mainAnimator)
                 mainAnimator.SetBool("walking", true);
+
         }
         else
             if (mainAnimator)

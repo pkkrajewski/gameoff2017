@@ -48,7 +48,13 @@ public class EnemyShootPlayer : MonoBehaviour
                 muzzleAnimator.Play("Muzzle");
             }
 
-            transform.rotation = Quaternion.FromToRotation(Vector3.up, GetDirectionToPlayer());
+            if (gameObject.name == "TankEnemy")
+            {
+                transform.GetChild(0).transform.rotation = Quaternion.FromToRotation(Vector3.up, GetDirectionToPlayer());
+                currentInterval = 2;
+            }
+            else
+                transform.rotation = Quaternion.FromToRotation(Vector3.up, GetDirectionToPlayer());
         }
     }
 
