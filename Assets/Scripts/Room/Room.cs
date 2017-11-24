@@ -105,6 +105,11 @@ public class Room : MonoBehaviour
                 newEnemy = Instantiate(roomManager.tankPrefab, transform);
                 newEnemy.name = roomManager.tankPrefab.name;
             }
+            else if (Random.Range(0, 5) == 0)
+            {
+                newEnemy = Instantiate(roomManager.turretPrefab, transform);
+                newEnemy.name = roomManager.turretPrefab.name;
+            }
             else if (Random.Range(0, 2) == 0)
             {
                 newEnemy = Instantiate(roomManager.easyEnemyPrefab, transform);

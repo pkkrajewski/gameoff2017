@@ -4,6 +4,7 @@ public class EnemyShootPlayer : MonoBehaviour
 {
     public GameObject bulletPrefab;
     public Transform bulletSpawn;
+    public Transform secondBulletSpawn;
 
     public static float BulletSpeed;
 
@@ -20,6 +21,7 @@ public class EnemyShootPlayer : MonoBehaviour
 
     public Animator mainAnimator;
     public Animator muzzleAnimator;
+    public Animator secondMuzzleAnimator;
 
     void Start ()
     {
@@ -46,9 +48,10 @@ public class EnemyShootPlayer : MonoBehaviour
                     currentInterval *= 1.5f;
 
                 muzzleAnimator.Play("Muzzle");
+                if(secondMuzzleAnimator != null) secondMuzzleAnimator.Play("Muzzle");
             }
 
-            if (gameObject.name == "TankEnemy")
+            if (gameObject.name == "TankEnemy" || gameObject.name == "TurretEnemy")
             {
                 transform.GetChild(0).transform.rotation = Quaternion.FromToRotation(Vector3.up, GetDirectionToPlayer());
                 currentInterval = 2;
@@ -64,6 +67,16 @@ public class EnemyShootPlayer : MonoBehaviour
         bullet.GetComponent<Rigidbody2D>().velocity = GetDirectionToPlayer() * BulletSpeed;
         bullet.GetComponent<BulletVelocitySaver>().Save();
         soundManager.Play("EnemyShot");
+
+        if(gameObject.name == "TurretEnemy" && secondBulletSpawn != null)
+        {
+            GameObject bullet2 = Instantiate(bulletPrefab, secondBulletSpawn.position, Quaternion.identity, instantiatedObjects);
+            bullet2.GetComponent<Rigidbody2D>().velocity = bullet.GetComponent<Rigidbody2D>().velocity;
+            bullet2.GetComponent<BulletVelocitySaver>().Save();
+
+            bullet.transform.localScale = bullet.transform.localScale / 1.5f;
+            bullet2.transform.localScale = bullet2.transform.localScale / 1.5f;
+        }
     }
 
     Vector2 GetDirectionToPlayer()
