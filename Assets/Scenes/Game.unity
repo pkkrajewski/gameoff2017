@@ -415,7 +415,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 196019103}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 179.90002, y: -87.89996, z: 0}
+  m_LocalPosition: {x: 179.90002, y: -87.900024, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1543179024}
@@ -541,8 +541,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 275605129}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.0626221, y: -0.57922363, z: 0.082595825}
-  m_LocalScale: {x: 0.008020717, y: 0.008020717, z: 0.008020717}
+  m_LocalPosition: {x: -1.0626221, y: -0.57928467, z: 0.082595825}
+  m_LocalScale: {x: 0.008016649, y: 0.008016649, z: 0.008016649}
   m_Children:
   - {fileID: 1348625636}
   - {fileID: 565050689}
@@ -2235,7 +2235,7 @@ RectTransform:
   m_GameObject: {fileID: 1543179020}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0.008020717, y: 0.008020717, z: 0.008020717}
+  m_LocalScale: {x: 0.008016649, y: 0.008016649, z: 0.008016649}
   m_Children:
   - {fileID: 196019104}
   - {fileID: 1311348}
@@ -3413,8 +3413,8 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: GameOver
     clips:
-    - {fileID: 8300000, guid: 3baeb81a3b7948445b7ca313ff1b0c20, type: 3}
-    volume: 0.1
+    - {fileID: 8300000, guid: d824c5dd03980694e9ee3b48661a8ee0, type: 3}
+    volume: 0.5
     source: {fileID: 0}
   - name: EnemyShot
     clips:
