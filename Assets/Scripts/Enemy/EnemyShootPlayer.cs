@@ -8,6 +8,8 @@ public class EnemyShootPlayer : MonoBehaviour
 
     public static float BulletSpeed;
 
+    public float turnSpeed = 1;
+
     const float MinInterval = 0.05f;
     public static float MaxInterval;
 
@@ -53,7 +55,7 @@ public class EnemyShootPlayer : MonoBehaviour
 
             if (gameObject.name == "TankEnemy" || gameObject.name == "TurretEnemy")
             {
-                transform.GetChild(0).transform.rotation = Quaternion.FromToRotation(Vector3.up, GetDirectionToPlayer());
+                transform.GetChild(0).transform.rotation = Quaternion.Lerp(transform.GetChild(0).transform.rotation, Quaternion.FromToRotation(Vector3.up, GetDirectionToPlayer()), turnSpeed * Time.deltaTime);
                 currentInterval = 2;
             }
             else
@@ -68,14 +70,19 @@ public class EnemyShootPlayer : MonoBehaviour
         bullet.GetComponent<BulletVelocitySaver>().Save();
         soundManager.Play("EnemyShot");
 
-        if(gameObject.name == "TurretEnemy" && secondBulletSpawn != null)
+        if(gameObject.name == "TurretEnemy" || gameObject.name == "TankEnemy")
         {
-            GameObject bullet2 = Instantiate(bulletPrefab, secondBulletSpawn.position, Quaternion.identity, instantiatedObjects);
-            bullet2.GetComponent<Rigidbody2D>().velocity = bullet.GetComponent<Rigidbody2D>().velocity;
-            bullet2.GetComponent<BulletVelocitySaver>().Save();
+            bullet.GetComponent<Rigidbody2D>().velocity = (muzzleAnimator.transform.position - bulletSpawn.position).normalized * BulletSpeed;
 
-            bullet.transform.localScale = bullet.transform.localScale / 1.5f;
-            bullet2.transform.localScale = bullet2.transform.localScale / 1.5f;
+            if (secondBulletSpawn != null)
+            {
+                GameObject bullet2 = Instantiate(bulletPrefab, secondBulletSpawn.position, Quaternion.identity, instantiatedObjects);
+                bullet2.GetComponent<Rigidbody2D>().velocity = bullet.GetComponent<Rigidbody2D>().velocity;
+                bullet2.GetComponent<BulletVelocitySaver>().Save();
+
+                bullet.transform.localScale = bullet.transform.localScale / 1.5f;
+                bullet2.transform.localScale = bullet2.transform.localScale / 1.5f;
+            }
         }
     }
 

@@ -166,7 +166,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1029039713981856}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.293, y: 0.644, z: 0}
+  m_LocalPosition: {x: -0.252, y: 0.644, z: 0}
   m_LocalScale: {x: 0.9999933, y: 0.9999933, z: 0.9999933}
   m_Children: []
   m_Father: {fileID: 4246951334001736}
@@ -223,7 +223,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1469109940317368}
   m_LocalRotation: {x: 0, y: 0, z: -1, w: 0}
-  m_LocalPosition: {x: -4.3544, y: 1.839015, z: 0}
+  m_LocalPosition: {x: -0.39, y: 3.18, z: 0}
   m_LocalScale: {x: 0.603044, y: 0.603044, z: 0.603044}
   m_Children:
   - {fileID: 4246951334001736}
@@ -238,7 +238,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1536828234505392}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.24, y: 0.652, z: 0}
+  m_LocalPosition: {x: 0.283, y: 0.652, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4246951334001736}
@@ -397,6 +397,7 @@ MonoBehaviour:
     type: 2}
   bulletSpawn: {fileID: 4676341264688072}
   secondBulletSpawn: {fileID: 4094767848907880}
+  turnSpeed: 2
   mainAnimator: {fileID: 95400033677833478}
   muzzleAnimator: {fileID: 95570741655762914}
   secondMuzzleAnimator: {fileID: 95045942817435288}
