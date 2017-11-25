@@ -21,6 +21,7 @@ public class Bonus : MonoBehaviour
         "SlowerEnemyShooting",
         "FasterEnemyWalking",
         "SlowerEnemyWalking",
+        "ExplosionNotHurtingPlayer"
     };
 
     static string[] bonusDescriptions = new string[]
@@ -35,7 +36,8 @@ public class Bonus : MonoBehaviour
         "Enemies shoot faster",
         "Enemies shoot slower",
         "Enemies walk faster",
-        "Enemies walk slower"
+        "Enemies walk slower",
+        "Explosion don't hurt you"
     };
 
     static int[] bonusIndexesNotUsingTimer = new int[] { 5, 6 };

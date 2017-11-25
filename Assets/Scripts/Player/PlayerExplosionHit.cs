@@ -4,6 +4,7 @@ public class PlayerExplosionHit : MonoBehaviour {
     
     public void OnExplosionHit()
     {
-        GetComponent<PlayerHealth>().RemoveHealthPacks(2);
+        if(Bonus.activeBonusName != "ExplosionNotHurtingPlayer")
+            GetComponent<PlayerHealth>().RemoveHealthPacks(2);
     }
 }
