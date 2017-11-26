@@ -34,10 +34,14 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        int newScore = CalculateHighScore();
+        int newScore = CalculateScore();
         int bestScore = PlayerPrefs.GetInt("HighScore", 0);
+
         if (newScore > bestScore)
-            PlayerPrefs.SetInt("HighScore", newScore);
+        {
+            bestScore = newScore;
+            PlayerPrefs.SetInt("HighScore", bestScore);
+        }
 
         gameoverPanel.SetActive(true);
         newScoreText.text = newScore.ToString();
@@ -47,18 +51,18 @@ public class GameManager : MonoBehaviour
         ResetVariables();
     }
 
+    private int CalculateScore()
+    {
+        int score = enemiesDestroyed * roomManagaer.roomNumber;
+
+        return score;
+    }
+
     private void ResetVariables()
     {
         EnemyFollowPlayer.MoveSpeed = 1.0f;
         EnemyShootPlayer.MaxInterval = 1.5f;
         EnemyShootPlayer.BulletSpeed = 4.0f;
         Room.startingAmountOfEnemies = 1;
-    }
-
-    private int CalculateHighScore()
-    {
-        int score = enemiesDestroyed * roomManagaer.roomNumber;
-
-        return score;
     }
 }
