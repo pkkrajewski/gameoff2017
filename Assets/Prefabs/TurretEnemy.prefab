@@ -84,11 +84,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4546142543342406}
   - component: {fileID: 212805212625839406}
-  - component: {fileID: 61847729839985186}
   - component: {fileID: 114641082254649876}
   - component: {fileID: 114573061400158012}
   - component: {fileID: 50913559477800892}
   - component: {fileID: 114932374731155442}
+  - component: {fileID: 68782960326535788}
   m_Layer: 11
   m_Name: TurretEnemy
   m_TagString: ShootingEnemy
@@ -223,7 +223,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1469109940317368}
   m_LocalRotation: {x: 0, y: 0, z: -1, w: 0}
-  m_LocalPosition: {x: -0.39, y: 3.18, z: 0}
+  m_LocalPosition: {x: -3.5042543, y: -0.27998495, z: 0}
   m_LocalScale: {x: 0.603044, y: 0.603044, z: 0.603044}
   m_Children:
   - {fileID: 4246951334001736}
@@ -277,8 +277,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &61847729839985186
-BoxCollider2D:
+--- !u!68 &68782960326535788
+EdgeCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -289,19 +289,41 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.041196972, y: -0.35204744}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.7, y: 0.7}
-    newSize: {x: 0.7, y: 0.7}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.1569133, y: 1.209346}
+  m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
+  m_Points:
+  - {x: 0.21009351, y: -0.18423544}
+  - {x: 0.14544924, y: -0.35231036}
+  - {x: 0.061411433, y: -0.5753326}
+  - {x: -0.03232214, y: -0.63028}
+  - {x: -0.17130727, y: -0.52684957}
+  - {x: -0.26504084, y: -0.2521121}
+  - {x: -0.2747374, y: -0.19070004}
+  - {x: -0.41372213, y: -0.1777713}
+  - {x: -0.4428122, y: -0.13898487}
+  - {x: -0.4428122, y: -0.03878645}
+  - {x: -0.55917174, y: -0.042018604}
+  - {x: -0.5785649, y: -0.012928767}
+  - {x: -0.77572936, y: 0.058179725}
+  - {x: -0.81774807, y: 0.13575268}
+  - {x: -0.79189044, y: 0.26180857}
+  - {x: -0.38140038, y: 0.40402567}
+  - {x: -0.36523932, y: 0.7789614}
+  - {x: -0.2521122, y: 0.78219366}
+  - {x: -0.22307551, y: 0.69807166}
+  - {x: -0.13127445, y: 0.9164268}
+  - {x: 0.029109852, y: 0.92479336}
+  - {x: 0.118678324, y: 0.7837231}
+  - {x: 0.11196078, y: 0.7008724}
+  - {x: 0.15450571, y: 0.6807196}
+  - {x: 0.19705024, y: 0.7837231}
+  - {x: 0.28885803, y: 0.7523743}
+  - {x: 0.29109734, y: 0.4164928}
+  - {x: 0.7210252, y: 0.25303063}
+  - {x: 0.7299821, y: 0.0761331}
+  - {x: 0.36722994, y: -0.07389379}
+  - {x: 0.35763103, y: -0.1804406}
+  - {x: 0.20911579, y: -0.1871508}
 --- !u!95 &95045942817435288
 Animator:
   serializedVersion: 3
